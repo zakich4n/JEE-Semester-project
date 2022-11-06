@@ -21,7 +21,7 @@ public class User {
         this.password = password;
         this.Age = age;
         this.sexe = sexe;
-        Country = country;
+        this.Country = country;
     }
 
     public User() {
