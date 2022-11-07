@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SpotEEfy</title>
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="register-main-container">
+        <div class="right">
+            <img
+                    src="./images/temporary.jpeg"
+            />
+        </div>
+        <div class="left">
+            <div class="button-container">
+                <div
+                        id="activate-signup-form"
+                >
+                <p></p>
+            </div>
+            <span
+                    id="activate-login-form"
+            >
+            <p>Log In</p>
+            </span>
+        </div>
+
+        <div>
+            <form
+                    id="loginForm"
+                    action="register.php"
+                    method="POST"
+                    style="display:flex"
+            >
+            <p>Email/Username</p>
+
+            <input
+                    type="text"
+                    name="usernameOrEmail"
+                    placeholder="Email/Username"
+            />
+            <p>Password</p>
+            <input type="password" name="password" placeholder="Password" />
+            <button
+                    type="submit"
+                    class="button-green login-button"
+                    name="login-submit"
+            >
+            Log In
+            </button>
+            <a href="#" class="white-text">
+                Forgotten Password
+            </a>
+            </form>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
