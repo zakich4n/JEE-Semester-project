@@ -11,10 +11,10 @@ public class Playlist {
     private Long ID_User;
     private String name;
     private String photo_url;
-    private ArrayList<Object> Songs= new ArrayList<Object>();
+    private ArrayList<String> Songs= new ArrayList<String>();
     private String ID_Song;
 
-    public Playlist(Long ID_Playlist, Long ID_User, String name, String photo_url, ArrayList<Object> songs, String ID_Song) {
+    public Playlist(Long ID_Playlist, Long ID_User, String name, String photo_url, ArrayList<String> songs, String ID_Song) {
         this.ID_Playlist = ID_Playlist;
         this.ID_User = ID_User;
         this.name = name;
@@ -59,11 +59,13 @@ public class Playlist {
         this.photo_url = photo_url;
     }
 
+
+    //TODO: wtf is happening here
     public String getSongs() {
         return Songs.toString();
     }
 
-    public void setSongs(ArrayList<Object> songs) {
+    public void setSongs(ArrayList<String> songs) {
         Songs = songs;
     }
 
