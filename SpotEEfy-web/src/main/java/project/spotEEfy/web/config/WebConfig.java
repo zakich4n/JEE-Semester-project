@@ -1,4 +1,4 @@
-package config;
+package project.spotEEfy.web.config;
 
 import com.shieldsolutions.velocity.view.VelocityConfigurer;
 import com.shieldsolutions.velocity.view.VelocityViewResolver;
@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = {"junia.SpotEEfy.web.controller"})
+@ComponentScan(basePackages = {"junia.SpotEEfy.web.project.spotEEfy.web.controller"})
 public class WebConfig implements WebMvcConfigurer {
 
     @Override

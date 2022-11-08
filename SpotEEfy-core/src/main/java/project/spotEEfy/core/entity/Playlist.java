@@ -13,6 +13,14 @@ public class Playlist {
     private String photo_url;
     private ArrayList<Object> Songs= new ArrayList<Object>();
 
+    public Playlist(Long ID_Playlist, Long ID_User, String name, String photo_url, ArrayList<Object> songs) {
+        this.ID_Playlist = ID_Playlist;
+        this.ID_User = ID_User;
+        this.name = name;
+        this.photo_url = photo_url;
+        Songs = songs;
+    }
+
     public Playlist() {
     }
 
