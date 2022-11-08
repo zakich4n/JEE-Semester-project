@@ -1,4 +1,4 @@
-package junia.airshare.core.service;
+package project.spotEEfy.core.service;
 
 import com.sun.xml.bind.v2.model.core.ID;
 import org.springframework.stereotype.Service;
