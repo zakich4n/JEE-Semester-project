@@ -43,6 +43,7 @@
                     name="usernameOrEmail"
                     placeholder="Email/Username"
             />
+
             <p>Password</p>
             <input type="password" name="password" placeholder="Password" />
             <button
