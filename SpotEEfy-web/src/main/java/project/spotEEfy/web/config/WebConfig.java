@@ -11,13 +11,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = {"junia.SpotEEfy.web.project.spotEEfy.web.controller"})
+@ComponentScan(basePackages = {"project.spotEEfy.web.controller"})
 public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/webjars/**").addResourceLocations("/webjars/");
-        registry.addResourceHandler("/assets/**").addResourceLocations("/assets/");
+        //registry.addResourceHandler("/assets/**").addResourceLocations("/assets/");
     }
 
     @Bean

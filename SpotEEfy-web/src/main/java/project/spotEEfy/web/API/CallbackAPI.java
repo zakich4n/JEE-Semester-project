@@ -34,7 +34,7 @@ public class CallbackAPI implements RestController {
             e.printStackTrace();
         }
 
-        return Response.status(Response.Status.TEMPORARY_REDIRECT).location(URI.create("http://localhost:8080/api/account_details"));
+        return Response.status(Response.Status.TEMPORARY_REDIRECT).location(URI.create("http://localhost:8080/SpotEEfy_core_war_exploded/api/account_details"));
 
     }
 

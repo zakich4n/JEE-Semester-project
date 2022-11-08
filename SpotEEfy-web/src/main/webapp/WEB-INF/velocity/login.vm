@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SpotEEfy</title>
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="css/login.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="register-main-container">
         <div class="right">
-            <img
-                    src="./images/temporary.jpeg"
-            />
+            <img src="images/temporary.jpeg" alt="'temp"/>
         </div>
         <div class="left">
             <div class="button-container">
@@ -25,7 +23,7 @@
             <span
                     id="activate-login-form"
             >
-            <p>Log In</p>
+            Log In
             </span>
         </div>
 
