@@ -12,13 +12,15 @@ public class Playlist {
     private String name;
     private String photo_url;
     private ArrayList<Object> Songs= new ArrayList<Object>();
+    private String ID_Song;
 
-    public Playlist(Long ID_Playlist, Long ID_User, String name, String photo_url, ArrayList<Object> songs) {
+    public Playlist(Long ID_Playlist, Long ID_User, String name, String photo_url, ArrayList<Object> songs, String ID_Song) {
         this.ID_Playlist = ID_Playlist;
         this.ID_User = ID_User;
         this.name = name;
         this.photo_url = photo_url;
         Songs = songs;
+        this.ID_Song = ID_Song;
     }
 
     public Playlist() {
@@ -63,5 +65,13 @@ public class Playlist {
 
     public void setSongs(ArrayList<Object> songs) {
         Songs = songs;
+    }
+
+    public String getID_Song() {
+        return ID_Song;
+    }
+
+    public void setID_Song(String ID_Song) {
+        this.ID_Song = ID_Song;
     }
 }

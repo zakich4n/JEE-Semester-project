@@ -1,17 +1,13 @@
 package project.spotEEfy.core.entity;
 
 
-import javax.persistence.Entity;
-
-@Entity
-public class Like implements Comparable<Like>{
+public class Like{
     private Long ID_User;
     private Long ID_Playlist;
 
-    public Like(Long ID_User, Long ID_Playlist, String text) {
+    public Like(Long ID_User, Long ID_Playlist) {
         this.ID_User = ID_User;
         this.ID_Playlist = ID_Playlist;
-        this.text = text;
     }
 
     public Like(){
@@ -33,8 +29,5 @@ public class Like implements Comparable<Like>{
         this.ID_Playlist = ID_Playlist;
     }
 
-    @Override
-    public int compareTo(Like o) {
-        return 0;
-    }
+
 }

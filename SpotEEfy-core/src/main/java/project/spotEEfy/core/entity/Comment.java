@@ -21,6 +21,7 @@ public class Comment {
     @JoinColumn(name = "user_id_user")
     private User user;
 
+
     private String text;
 
     @Id
@@ -32,17 +33,18 @@ public class Comment {
     }
 
 
-    /*
-    public Comment(Long ID_User, Long ID_Playlist, String text) {
-        this.ID_User = ID_User;
-        this.ID_Playlist = ID_Playlist;
-        this.text = text;
-    }
 
-     */
+    public Comment(Long id, Long ID_User, Long ID_Playlist, String text) {
+        this.id = id;
+        //this.ID_User = ID_User;
+        //this.ID_Playlist = ID_Playlist;
+        this.text = text;
+
+    }
 
     public Comment() {}
 
+    /*
     public Long getID_User() {
         return ID_User;
     }
@@ -58,6 +60,8 @@ public class Comment {
     public void setID_Playlist(Long ID_Playlist) {
         this.ID_Playlist = ID_Playlist;
     }
+
+     */
 
     public String getText() {
         return text;
