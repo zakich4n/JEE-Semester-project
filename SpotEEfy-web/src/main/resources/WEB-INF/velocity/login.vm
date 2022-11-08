@@ -64,7 +64,7 @@
     </div>
         <script>
             var client_id = '0c2bf5c0e34e44e283582f726b9ecce2';
-            var redirect_uri = 'http://localhost:8888/callback';
+            var redirect_uri = 'http://localhost:8888/callback/response';
             const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
             function generateString(length) {
