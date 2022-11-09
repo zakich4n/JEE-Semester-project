@@ -42,6 +42,7 @@ public interface UserDAO extends JpaRepository<User, Long> {
 
     @Override
     void delete(User entity);
+
 }
 
 

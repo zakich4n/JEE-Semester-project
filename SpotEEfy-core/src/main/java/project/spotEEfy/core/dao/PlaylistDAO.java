@@ -13,6 +13,7 @@ import java.util.Optional;
 import java.util.function.Function;
 
 public class PlaylistDAO implements JpaRepository<Playlist, Long> {
+
     @Override
     public List<Playlist> findAll() {
         return null;
@@ -162,4 +163,8 @@ public class PlaylistDAO implements JpaRepository<Playlist, Long> {
     public <S extends Playlist> S saveAndFlush(S entity) {
         return null;
     }
+
+
+
 }
+*/
