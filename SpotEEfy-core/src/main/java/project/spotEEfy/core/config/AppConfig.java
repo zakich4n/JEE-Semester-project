@@ -28,7 +28,7 @@ public class AppConfig {
     @Bean
     public HikariConfig dbConfiguration() {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:mysql://localhost:3306/spoteefy?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC");
+        config.setJdbcUrl("jdbc:mysql://localhost:8888/spoteefy?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC");
         config.setUsername("root");
         config.setPassword("");
         config.addDataSourceProperty("cachePrepStmts", "true");

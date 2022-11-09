@@ -14,7 +14,7 @@ import java.util.Optional;
 @Transactional
 
 public class CommentService {
-    private CommentDAO commentDAO;
+/*    private CommentDAO commentDAO;
 
     public CommentService(CommentDAO commentDAO){
         this.commentDAO = commentDAO;
@@ -36,7 +36,7 @@ public class CommentService {
         } else {
             throw new IOException();
         }
-    }
+    }*/
 
 }
 

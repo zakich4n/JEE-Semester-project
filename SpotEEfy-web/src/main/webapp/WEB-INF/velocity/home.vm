@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SpotEEfy</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/sideBar.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+</head>
+<body>
+<div id="side-bar-container">
+    <img
+            id="side-bar-logo"
+            src="../assets/logo/spotify-icons-logos/logos/O1_RGB/O2_PNG/Spotify_Logo_RGB_White.png"
+    />
+    <a
+            href="/"
+            class="side-bar-menue"
+    >
+        <i class="fas fa-home side-bar-icons"></i>
+        <p class="silvery-text">Home</p>
+    </a>
+    <a
+            to="/search"
+            class="side-bar-menue"
+
+    >
+        <i class="fas fa-search side-bar-icons"></i>
+        <p class="silvery-text">Search</p>
+    </a>
+    <p
+            class="silvery-text"
+            style="font_size:11px, letter_spacing:1px, margin_top:40px"
+    >
+        PLAYLISTS
+    </p>
+    <div class="side-bar-menue" onClick={showForm}>
+        <div class="create-new-playlist-icon">
+          <span>
+            <b>+</b>
+          </span>
+        </div>
+        <p class="silvery-text">Create Playlist</p>
+    </div>
+    <a href="/liked" class="side-bar-menue">
+        <div class="liked-song-icon">
+            <i class="fas fa-heart"></i>
+        </div>
+        <p class="silvery-text">Liked Songs</p>
+    </a>
+    <div class="straight-line"></div>
+    <div id="user-created-palylists-container">
+        {/* <p class="silvery-text">Playlist 1</p>
+        <p class="silvery-text">Playlist 2</p>
+        <p class="silvery-text">Playlist 3</p> */}
+
+
+        <a
+                href="/playlist/0"
+                class="silvery-text"
+                activeclass="white-text"
+        >
+            <p>{title}</p>
+        </a>
+
+    </div>
+</div>
+    <div>
+        <h1 class="section-hading" style="marginTop: 20px">
+        Most Popular Albums
+        </h1>
+        <div id="album-cart-grid">
+
+
+            <div
+                    class="album-container"
+                    id="album-container"
+            >
+                <img
+                        src=""
+                        alt=""
+                style="border_radius:50%"
+                />
+                <div class="album-tittle">
+                    <p class="white-text">Title</p>
+                </div>
+                <div class="album-discription">
+                    <p class="silvery-text">description</p>
+                </div>
+                <div
+                        id="circular-paly-button"
+                        onClick={(e) => {
+                e.preventDefault();
+                setPlayList(id);
+                }}
+                style={{
+                visibility: currentPlayingAlbumId == id ? "visible" : "",
+                display: isArtist ? "none" : "flex",
+                }}
+                >
+                <i
+                        class="fas fa-play"
+                        id="album-floating-play-button"
+                        style={{
+                        display:
+                        isPlaying && currentPlayingAlbumId == id ? "none" : "block",
+                }}
+                ></i>
+                <i
+                        class="fas fa-pause"
+                        id="album-floating-pause-button"
+                        style={{
+                        display:
+                        isPlaying && currentPlayingAlbumId == id ? "block" : "none",
+                }}
+                ></i>
+            </div>
+        </div>
+
+
+        </div>
+        <h1 class="section-hading">Popular Artists</h1>
+
+        <div id="album-cart-grid">
+            {artists.map(({ id, name, img }) => {
+            return (
+            <AlbumCart
+                    title={name}
+                    img={img}
+                    discription="Artist"
+                    key={id}
+                    id={id}
+                    isArtist={true}
+            />
+            );
+            })}
+        </div>
+    </div>
+</body>
+</html>

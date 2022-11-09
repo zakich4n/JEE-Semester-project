@@ -1,0 +1,60 @@
+<div id="side-bar-container">
+    <img
+            id="side-bar-logo"
+            src="../assets/logo/spotify-icons-logos/logos/O1_RGB/O2_PNG/Spotify_Logo_RGB_White.png"
+    />
+    <a
+            href="/"
+            class="side-bar-menue"
+
+            activeclass="side-bar-menue-active"
+    >
+        <i class="fas fa-home side-bar-icons"></i>
+        <p class="silvery-text">Home</p>
+    </a>
+    <a
+            to="/search"
+            class="side-bar-menue"
+            exact
+            activeclass="side-bar-menue-active"
+    >
+        <i class="fas fa-search side-bar-icons"></i>
+        <p class="silvery-text">Search</p>
+    </a>
+    <p
+            class="silvery-text"
+            style="font_size:11px, letter_spacing:1px, margin_top:40px"
+    >
+    PLAYLISTS
+    </p>
+    <div class="side-bar-menue" onClick={showForm}>
+        <div class="create-new-playlist-icon">
+          <span>
+            <b>+</b>
+          </span>
+        </div>
+        <p class="silvery-text">Create Playlist</p>
+    </div>
+    <a href="/liked" class="side-bar-menue">
+        <div class="liked-song-icon">
+            <i class="fas fa-heart"></i>
+        </div>
+        <p class="silvery-text">Liked Songs</p>
+    </a>
+    <div class="straight-line"></div>
+    <div id="user-created-palylists-container">
+        {/* <p class="silvery-text">Playlist 1</p>
+        <p class="silvery-text">Playlist 2</p>
+        <p class="silvery-text">Playlist 3</p> */}
+
+
+        <a
+                href="/playlist/0"
+                class="silvery-text"
+                activeclass="white-text"
+        >
+            <p>{title}</p>
+        </a>
+
+    </div>
+</div>
