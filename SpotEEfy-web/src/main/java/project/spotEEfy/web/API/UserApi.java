@@ -1,6 +1,6 @@
 package project.spotEEfy.web.API;
+ 
 /*
-
 import project.spotEEfy.core.service.UserService;
 import project.spotEEfy.web.controller.RestController;
 
@@ -29,5 +29,5 @@ public class UserApi implements RestController {
     public
 
 }
+*/
 
- */

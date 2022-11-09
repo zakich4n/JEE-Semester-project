@@ -14,11 +14,11 @@ import javax.ws.rs.Path;
 public class LoginController {
 
 
-   /* private UserService userService;
+     private UserService userService;
     public LoginController(UserService userService) {
         this.userService = userService;
     }
-    */
+       
 
 
 

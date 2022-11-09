@@ -1,5 +1,5 @@
 package project.spotEEfy.core.entity;
-/*
+ 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,8 +15,6 @@ public class Comment {
     private Playlist playlist;
 
 
-    //TODO: See if we do it like that
-    //OneToMany(mappedBy=)
     @ManyToOne
     @JoinColumn(name = "user_id_user")
     private User user;
@@ -34,17 +32,17 @@ public class Comment {
 
 
 
-    public Comment(Long id, Long ID_User, Long ID_Playlist, String text) {
+    public Comment(Long id, User user, String text) {
         this.id = id;
-        //this.ID_User = ID_User;
-        //this.ID_Playlist = ID_Playlist;
+
+        this.user = user;
         this.text = text;
 
     }
 
     public Comment() {}
 
-    /*
+     /*
     public Long getID_User() {
         return ID_User;
     }
@@ -60,8 +58,7 @@ public class Comment {
     public void setID_Playlist(Long ID_Playlist) {
         this.ID_Playlist = ID_Playlist;
     }
-
-
+*/
 
     public String getText() {
         return text;
@@ -72,4 +69,4 @@ public class Comment {
     }
 }
 
-*/
+   

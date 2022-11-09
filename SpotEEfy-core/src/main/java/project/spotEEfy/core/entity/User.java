@@ -1,6 +1,6 @@
 package project.spotEEfy.core.entity;
 
-/*
+ 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -91,4 +91,4 @@ public class User {
 }
 
 
- */
+    

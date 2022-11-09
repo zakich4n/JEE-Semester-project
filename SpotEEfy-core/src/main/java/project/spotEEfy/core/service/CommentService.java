@@ -1,6 +1,6 @@
 package project.spotEEfy.core.service;
 
-/*
+ 
 import project.spotEEfy.core.dao.CommentDAO;
 import project.spotEEfy.core.entity.Comment;
 
@@ -41,4 +41,4 @@ public class CommentService {
 }
 
 
- */
+    

@@ -1,5 +1,5 @@
 package project.spotEEfy.web.controller;
-/*
+
 import org.springframework.web.bind.annotation.RestController;
 
 import java.lang.annotation.Annotation;
@@ -15,4 +15,4 @@ public class PlaylistController implements RestController {
         return null;
     }
 }
-*/
+   

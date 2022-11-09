@@ -27,8 +27,8 @@ body {
     align-items: center;
     flex-direction: column;
     margin-left: 50vw;
-    /* height: 150vh;
-    overflow: auto; */
+      height: 150vh;
+    overflow: auto;
 }
 .register-main-container .left .button-container {
     display: flex;
