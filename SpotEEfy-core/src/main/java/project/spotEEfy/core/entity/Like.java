@@ -1,6 +1,6 @@
 package project.spotEEfy.core.entity;
 
-
+/*
 public class Like{
     private Long ID_User;
     private Long ID_Playlist;
@@ -31,3 +31,6 @@ public class Like{
 
 
 }
+
+
+ */

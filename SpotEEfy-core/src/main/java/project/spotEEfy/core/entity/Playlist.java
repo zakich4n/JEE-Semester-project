@@ -1,5 +1,5 @@
 package project.spotEEfy.core.entity;
-
+/*
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.ArrayList;
@@ -75,3 +75,4 @@ public class Playlist {
         this.ID_Song = ID_Song;
     }
 }
+*/

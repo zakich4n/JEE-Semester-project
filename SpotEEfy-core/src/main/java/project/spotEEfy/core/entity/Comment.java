@@ -1,5 +1,5 @@
 package project.spotEEfy.core.entity;
-
+/*
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -61,7 +61,7 @@ public class Comment {
         this.ID_Playlist = ID_Playlist;
     }
 
-     */
+
 
     public String getText() {
         return text;
@@ -71,3 +71,5 @@ public class Comment {
         this.text = text;
     }
 }
+
+*/

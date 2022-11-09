@@ -21,7 +21,7 @@ import java.sql.SQLException;
 @EnableJpaRepositories(basePackages = "project.spotEEfy.core.dao")
 public class DBConfig {
 
-    @Bean(destroyMethod = "close")
+    @Bean(destroyMethod = "")
     public DataSource dataSource(HikariConfig dbConfiguration) {
         return new HikariDataSource(dbConfiguration);
     }
