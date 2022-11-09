@@ -7,7 +7,9 @@ import javax.persistence.Id;
 @Entity
 public class User {
 
+    @Id
     private Long ID_User;
+
     private String email;
     private String username;
     private String password;
@@ -36,7 +38,7 @@ public class User {
         this.ID_User = id;
     }
 
-    @Id
+
     public Long getID_User() {
         return ID_User;
     }

@@ -1,8 +1,9 @@
 package project.spotEEfy.core.service;
 
- 
+
 import project.spotEEfy.core.dao.CommentDAO;
 import project.spotEEfy.core.entity.Comment;
+import project.spotEEfy.core.exception.IDNotFoundException;
 
 import javax.inject.Named;
 import javax.transaction.Transactional;
@@ -12,7 +13,6 @@ import java.util.Optional;
 
 @Named
 @Transactional
-
 public class CommentService {
     private CommentDAO commentDAO;
 
@@ -28,13 +28,12 @@ public class CommentService {
         commentDAO.delete(comment);
     }
 
-    //TODO: change the exception to CommentNotExistException
-    public void deleteCommentById(Long commentId) throws IOException {
+    public void deleteCommentById(Long commentId) throws IDNotFoundException {
         Optional<Comment> optionalComment = commentDAO.findById(commentId);
         if(optionalComment.isPresent()){
             commentDAO.deleteById(commentId);
         } else {
-            throw new IOException();
+            throw new IDNotFoundException("Comment ID");
         }
     }
 

@@ -12,53 +12,55 @@ public class Comment {
 
     @ManyToOne
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JoinColumn(name = "playlist_id")
     private Playlist playlist;
 
 
     @ManyToOne
-    @JoinColumn(name = "user_id_user")
+    @JoinColumn(name = "ID_User")
     private User user;
 
-
+    @Column(name = "text")
     private String text;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    public User getUser() {
-        return user;
-    }
 
-
-
-    public Comment(Long id, User user, String text) {
+    public Comment(Long id, User user, Playlist playlist, String text) {
         this.id = id;
-
         this.user = user;
+        this.playlist = playlist;
         this.text = text;
 
     }
 
     public Comment() {}
 
-     /*
-    public Long getID_User() {
-        return ID_User;
+    public Playlist getPlaylist() {
+        return playlist;
     }
 
-    public void setID_User(Long ID_User) {
-        this.ID_User = ID_User;
+    public void setPlaylist(Playlist playlist) {
+        this.playlist = playlist;
     }
 
-    public Long getID_Playlist() {
-        return ID_Playlist;
+    public User getUser() {
+        return user;
     }
 
-    public void setID_Playlist(Long ID_Playlist) {
-        this.ID_Playlist = ID_Playlist;
+    public void setUser(User user) {
+        this.user = user;
     }
-*/
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getText() {
         return text;

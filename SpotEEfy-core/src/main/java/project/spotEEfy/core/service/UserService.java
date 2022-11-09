@@ -1,5 +1,5 @@
 package project.spotEEfy.core.service;
- 
+
 import com.sun.xml.bind.v2.model.core.ID;
 import org.springframework.stereotype.Service;
 import project.spotEEfy.core.dao.UserDAO;
@@ -22,8 +22,7 @@ public class UserService {
 
     public void saveUser(User user) { userDAO.save(user); }
 
-    public void deleteAll() { userDAO.deleteAll(); }
-
+    //TODO: made this one with the exception idnotfound if needed
     public void deleteUser(User user) { userDAO.delete(user); }
 
     public long countAll() { return userDAO.count(); }
@@ -32,10 +31,12 @@ public class UserService {
 
     public List<User> findAll() { return userDAO.findAll(); }
 
+
     public User getUserById(long id) { return userDAO.getUserByID_User(id); }
 
     public List<User> getAllUsers() { return userDAO.getAllUsers(); }
 
 }
 
-    
+
+

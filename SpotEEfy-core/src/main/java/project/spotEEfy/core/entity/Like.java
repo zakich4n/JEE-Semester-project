@@ -1,35 +1,55 @@
 package project.spotEEfy.core.entity;
 
- 
-public class Like{
-    private Long ID_User;
-    private Long ID_Playlist;
 
-    public Like(Long ID_User, Long ID_Playlist) {
-        this.ID_User = ID_User;
-        this.ID_Playlist = ID_Playlist;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class Like{
+    @Id
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    @OneToOne
+    private User user;
+
+    @OneToOne
+    private Playlist playlist;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Like(User user,Playlist playlist, Long id) {
+        this.user = user;
+        this.playlist = playlist;
+        this.id = id;
     }
 
     public Like(){
     }
 
-    public Long getID_User() {
-        return ID_User;
+    public User getUser() {
+        return user;
     }
 
-    public void setID_User(Long ID_User) {
-        this.ID_User = ID_User;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Long getID_Playlist() {
-        return ID_Playlist;
+    public Playlist getPlaylist() {
+        return playlist;
     }
 
-    public void setID_Playlist(Long ID_Playlist) {
-        this.ID_Playlist = ID_Playlist;
+    public void setPlaylist(Playlist playlist) {
+        this.playlist = playlist;
     }
-
-
 }
 
 

@@ -1,46 +1,55 @@
 package project.spotEEfy.core.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.util.ArrayList;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@JsonIgnoreProperties(value = {"songs"})
 public class Playlist {
 
+    @Id
+    @Column
     private Long ID_Playlist;
-    private Long ID_User;
+
+
+    @ManyToOne
+    @JoinColumn(name = "ID_User")
+    private User user;
+
     private String name;
     private String photo_url;
-    private ArrayList<Object> Songs= new ArrayList<Object>();
-    private String ID_Song;
 
-    public Playlist(Long ID_Playlist, Long ID_User, String name, String photo_url, ArrayList<Object> songs, String ID_Song) {
+    @OneToMany
+    private List<Song> songs;
+
+    public Playlist(Long ID_Playlist, User user, String name, String photo_url, List<Song> songs) {
         this.ID_Playlist = ID_Playlist;
-        this.ID_User = ID_User;
+        this.user = user;
         this.name = name;
         this.photo_url = photo_url;
-        Songs = songs;
-        this.ID_Song = ID_Song;
+        this.songs = songs;
     }
 
     public Playlist() {
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public void setID_Playlist(Long id_playlist) {
         this.ID_Playlist = id_playlist;
     }
 
-    @Id
+
     public Long getID_Playlist() {
         return ID_Playlist;
-    }
-
-    public Long getID_User() {
-        return ID_User;
-    }
-
-    public void setID_User(Long ID_User) {
-        this.ID_User = ID_User;
     }
 
     public String getName() {
@@ -59,19 +68,15 @@ public class Playlist {
         this.photo_url = photo_url;
     }
 
-    public String getSongs() {
-        return Songs.toString();
+    public List<Song> getSongs() {
+        return songs;
     }
 
-    public void setSongs(ArrayList<Object> songs) {
-        Songs = songs;
+    public void setSongs(List<Song> songs) {
+        this.songs = songs;
     }
 
-    public String getID_Song() {
-        return ID_Song;
-    }
-
-    public void setID_Song(String ID_Song) {
-        this.ID_Song = ID_Song;
+    public void addSong(Song song) {
+        this.songs.add(song);
     }
 }

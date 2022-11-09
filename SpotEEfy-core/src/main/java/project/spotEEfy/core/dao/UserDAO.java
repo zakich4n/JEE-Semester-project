@@ -19,29 +19,10 @@ public interface UserDAO extends JpaRepository<User, Long> {
     @Query("SELECT u FROM User u WHERE  u.email = :email")
     public User getUserByEmail(@Param("email") String email);
 
-    @Query("SELECT u FROM User u WHERE u.Country = :country")
-    public List<User> getUserByCountryCode(@Param("country") String country);
-
     @Query("SELECT u FROM User u WHERE u.ID_User = :id")
     public User getUserByID_User(@Param("id") long id);
 
     @Query("SELECT u FROM User u")
     public List<User> getAllUsers();
-
-    @Override
-    <S extends User> long count(Example<S> example);
-
-    @Override
-    <S extends User> S save(S entity);
-
-    @Override
-    List<User> findAll();
-
-    @Override
-    void deleteById(Long aLong);
-
-    @Override
-    void delete(User entity);
-
 }
 
