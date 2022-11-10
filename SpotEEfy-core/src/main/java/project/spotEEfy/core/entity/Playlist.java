@@ -24,12 +24,12 @@ public class Playlist {
     @OneToMany
     private List<Song> songs;
 
-    public Playlist(String ID_Playlist, User user, String name, String photo_url, List<Song> songs) {
+    public Playlist(String ID_Playlist, User user, String name, String photo_url) {
         this.ID_Playlist = ID_Playlist;
         this.user = user;
         this.name = name;
         this.photo_url = photo_url;
-        this.songs = songs;
+        //this.songs = songs;
     }
 
     public Playlist() {
