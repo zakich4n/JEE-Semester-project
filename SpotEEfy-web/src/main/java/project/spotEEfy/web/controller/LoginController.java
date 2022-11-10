@@ -10,7 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import project.spotEEfy.core.dao.LikeDAO;
+import project.spotEEfy.core.entity.Playlist;
 import project.spotEEfy.core.entity.User;
+import project.spotEEfy.core.service.PlaylistService;
 import project.spotEEfy.core.service.UserService;
 import project.spotEEfy.web.API.CallbackAPI;
 //      import project.spotEEfy.core.service.UserService;
@@ -27,6 +29,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 @Controller
 public class LoginController {
@@ -36,6 +39,8 @@ public class LoginController {
     private UserService userService;
 
     static User sessionUser;
+
+    private PlaylistService playlistService;
 
     public LoginController(UserService userService) {
         this.userService = userService;
@@ -152,19 +157,63 @@ public class LoginController {
 
             //TODO change id user to string
 
+
+            String ID_Playlist = null;
+            String user_playlist = null;
+            String name = null;
+            String songs_url = null;
+            String photo_url = null;
+            //int number_of_songs = 0;
             String jsonString = response.toString() ; //assign your JSON String here
             JSONObject obj = new JSONObject(jsonString);
-            String username  = obj.getString("display_name");
-            String email  = obj.getString("email");
-            String ID_User  = obj.getString("id");
-            String country  = obj.getString("country");
+            JSONArray arr = obj.getJSONArray("items"); // notice that `"posts": [...]`
+            for (int i = 0; i < arr.length(); i++){
+                ID_Playlist = arr.getJSONObject(i).getString("id");
+                user_playlist  = arr.getJSONObject(i).getJSONObject("owner").getString("display_name");
+                name  = arr.getJSONObject(i).getString("name");
+                songs_url = arr.getJSONObject(i).getJSONObject("tracks").getString("href");
+                //number_of_songs = Integer.parseInt(arr.getJSONObject(i).getJSONObject("tracks").getString("total"));
+                JSONArray photo_url_arr = arr.getJSONObject(i).getJSONArray("images");
+                for(int n = 0; n<photo_url_arr.length(); n++){
+                    if(n == 1) {
+                        photo_url = photo_url_arr.getJSONObject(n).getString("url");
+                    }
+                }
+
+                log.warn("result of the playlist call of index "+ i +" : " + ID_Playlist + " " + user_playlist + " "
+                        + name + " " + songs_url + " "  + " " + photo_url );
+
+                URL url_songs = new URL(songs_url);
+
+                HttpURLConnection con_songs = (HttpURLConnection) url_songs.openConnection();
+                con_songs.setRequestProperty("Authorization", "Bearer "+ tokeng);
+                con_songs.setRequestProperty("Content-Type","application/json");
+                con_songs.setRequestProperty("Accept","application/json");
+                con_songs.setRequestMethod("GET");
+                log.warn("we get tracks");
+                BufferedReader in_songs = new BufferedReader(new InputStreamReader(con_songs.getInputStream()));
+                String output_songs;
+
+                StringBuffer response_songs = new StringBuffer();
+                while ((output_songs = in_songs.readLine()) != null) {
+                    response_songs.append(output_songs);
+                }
+                in_songs.close();
+                // printing result from response
+                log.warn("Response_songs:-" + response_songs.toString());
 
 
-            log.warn(username  + " " + email + " "+ ID_User + " "+ country);
+            }
 
-            sessionUser = new User(ID_User, email, username, country);
+
+            /*
+            sessionUser = new User();
             userService.saveUser(sessionUser);
             log.warn("save User :", sessionUser.getID_User());
+
+             */
+
+
 
 
 
@@ -172,6 +221,33 @@ public class LoginController {
             e.printStackTrace();
         }
         return "redirect:/home";
+    }
+
+    public void deparseSongList(String json){
+
+        String title;
+        String author;
+        String url_photo;
+
+
+        String jsonString = json.toString() ; //assign your JSON String here
+        JSONObject obj = new JSONObject(jsonString);
+        JSONArray arr = obj.getJSONArray("items");
+        for (int i = 0; i < arr.length(); i++){
+             = arr.getJSONObject(i).getString("id");
+            user_playlist  = arr.getJSONObject(i).getJSONObject("owner").getString("display_name");
+            name  = arr.getJSONObject(i).getString("name");
+            songs_url = arr.getJSONObject(i).getJSONObject("tracks").getString("href");
+            //number_of_songs = Integer.parseInt(arr.getJSONObject(i).getJSONObject("tracks").getString("total"));
+            JSONArray photo_url_arr = arr.getJSONObject(i).getJSONArray("images");
+            for(int n = 0; n<photo_url_arr.length(); n++){
+                if(n == 1) {
+                    photo_url = photo_url_arr.getJSONObject(n).getString("url");
+                }
+            }
+
+            log.warn("result of the playlist call of index "+ i +" : " + ID_Playlist + " " + user_playlist + " "
+                    + nam
     }
 
 
