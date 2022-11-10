@@ -8,7 +8,9 @@ import project.spotEEfy.core.exception.IDNotFoundException;
 import javax.inject.Named;
 import javax.transaction.Transactional;
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
+import project.spotEEfy.core.entity.Playlist;
 
 
 @Named
@@ -35,6 +37,10 @@ public class CommentService {
         } else {
             throw new IDNotFoundException("Comment ID");
         }
+    }
+
+    public List<Comment> getCommentsFromPlaylist(Playlist playlist) {
+        return commentDAO.findByPlaylist(playlist);
     }
 
 }

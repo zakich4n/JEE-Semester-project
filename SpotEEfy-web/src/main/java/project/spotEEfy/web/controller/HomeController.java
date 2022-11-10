@@ -28,12 +28,26 @@ public class HomeController {
 
     //TODO: add playlist in js or java and the user name would be cool too
     @GetMapping("/home")
-    public String homePage(){
+    public String homePage(ModelMap model){
+        //if(sessionUser.getID_User().length() < 2) return "home";
+        model.addAttribute("session_user", sessionUser);
         return "home";
     }
 
     @GetMapping("/library")
     public String goToLibrary(ModelMap model) {
+        //if(sessionUser.getID_User().length() < 2) return "login";
+        model.addAttribute("session_user", sessionUser);
+
+        Boolean isEmpty=true;
+        try {
+            playlistService.doesUserHaveNoPlaylist(sessionUser);
+            likeService.doesUserHaveNoLike(sessionUser);
+            isEmpty=false;
+        } catch (Exception e) {
+
+        }
+        if(isEmpty) return "empty_library";
         model.addAttribute("created_playlists", playlistService.getAllPlaylistFromUser(sessionUser.getID_User()));
         List<Like> likedByUser=likeService.getAllLikesFromUser(sessionUser);
         List<Playlist> playlistLiked= new ArrayList<>();

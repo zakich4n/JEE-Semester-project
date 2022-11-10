@@ -24,6 +24,20 @@ public class LikeService {
         return likeDAO.getLikeFromUserAndPlaylist(playlist.getID_Playlist(),user.getID_User());
     }
 
+
+    public Boolean doesUserHaveNoLike(User user) {
+        Boolean isNull=true;
+        try {
+            getAllLikesFromUser(user).get(1);
+            isNull=false;
+        }
+        catch (Exception e) {
+
+        }
+
+        return isNull;
+    }
+
     public List<Like> getAllLikesFromUser(User user) { return likeDAO.getLikesFromUserID(user.getID_User());}
 
     public void likePlaylist(Playlist playlist, User user) {

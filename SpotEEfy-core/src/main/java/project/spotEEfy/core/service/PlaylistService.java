@@ -4,6 +4,8 @@ import project.spotEEfy.core.dao.PlaylistDAO;
 import project.spotEEfy.core.entity.Playlist;
 import project.spotEEfy.core.entity.Song;
 import project.spotEEfy.core.exception.IDNotFoundException;
+import project.spotEEfy.core.entity.User;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -26,6 +28,9 @@ public class PlaylistService {
         playlistDAO.save(playlist);
     }
 
+    public Playlist getPlaylistByID(Long id) {
+        return playlistDAO.findById(id).get();
+    }
 
     //TODO: maybe  a save by id if we need it in the front
     //TODO: throw exception for PlaylistNotExistException
@@ -36,6 +41,20 @@ public class PlaylistService {
         } else {
             throw new IDNotFoundException("playlist ID");
         }
+    }
+
+    public Boolean doesUserHaveNoPlaylist(User user) {
+        Boolean isNull=true;
+        try {
+            getAllPlaylistFromUser(user.getID_User()).get(1);
+            isNull=false;
+        }
+        catch (Exception e) {
+
+
+        }
+
+        return isNull;
     }
 
     public List<Playlist> getAllPlaylistFromUser(String ID_user) {

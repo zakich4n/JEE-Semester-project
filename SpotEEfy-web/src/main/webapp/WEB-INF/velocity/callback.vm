@@ -7,13 +7,13 @@
     <script>
         window.onload = window.onhashchange = function() {
             var fragment = window.location.hash;
-            document.getElementById('hash').innerText = fragment
             fragment=fragment.split('#')
             window.location="http://localhost:8080/SpotEEfy_web_war_exploded/token?"+fragment[1];
         }
     </script>
 </head>
 <body>
-<h1 id="hash"></h1>
+<h1 >Redirecting ...</h1>
+
 </body>
 </html>
