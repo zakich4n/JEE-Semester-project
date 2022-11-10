@@ -1,11 +1,12 @@
 package project.spotEEfy.web.controller;
 
-/*
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import project.spotEEfy.core.service.UserService;
 //      import project.spotEEfy.core.service.UserService;
 
 import javax.ws.rs.Path;
@@ -24,7 +25,7 @@ public class LoginController {
 
     @GetMapping("/login")
     public String signInPage(ModelMap model) {
-        //LOGGER.warn("LOGIN QUI SE LANCE");
+
         model.addAttribute("test","ouaiouaitest");
         return "login";
     }
@@ -36,4 +37,3 @@ public class LoginController {
     }
 }
 
- */
