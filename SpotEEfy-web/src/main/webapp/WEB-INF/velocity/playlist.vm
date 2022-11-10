@@ -1051,7 +1051,7 @@
                         <div>
                             <span><b>$song.title</b></span>
                             <br/>
-                            <span><i>$song.artist</i></span>
+                            <span><i>Artiste qu'on a pas reussi a parse du json</i></span>
                         </div>
                     </div>
                     #if( $foreach.hasNext )
@@ -1065,16 +1065,9 @@
         </div>
     </div>
 
-    <div id="snackbar">Playlist is liked !</div>
 </div>
 
 <script>
-
-    function playlistLikedToast() {
-        var x = document.getElementById("snackbar");
-        x.className = "show";
-        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
-    }
 
 </script>
 </body>
