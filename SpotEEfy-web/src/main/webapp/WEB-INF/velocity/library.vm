@@ -331,6 +331,7 @@
         transform: scale(1.05);
     }
 
+
     #botomIcon {
         display: none !important;
     }
@@ -888,70 +889,19 @@
                 </li>
             </ul>
 
-            <div id="underList">
-                <button>
-                    <div class="plus_bttn">
-                        <svg role="img" height="12" width="12" aria-hidden="true" viewBox="0 0 16 16">
-                            <path
-                                    d="M15.25 8a.75.75 0 01-.75.75H8.75v5.75a.75.75 0 01-1.5 0V8.75H1.5a.75.75 0 010-1.5h5.75V1.5a.75.75 0 011.5 0v5.75h5.75a.75.75 0 01.75.75z">
-                            </path>
-                        </svg>
-                    </div>
-                    Create Playlist
-                </button>
 
-                <button>
-                    <div class="heart_bttn">
-                        <svg role="img" height="12" width="12" aria-hidden="true" viewBox="0 0 16 16">
-                            <path
-                                    d="M15.724 4.22A4.313 4.313 0 0012.192.814a4.269 4.269 0 00-3.622 1.13.837.837 0 01-1.14 0 4.272 4.272 0 00-6.21 5.855l5.916 7.05a1.128 1.128 0 001.727 0l5.916-7.05a4.228 4.228 0 00.945-3.577z">
-                            </path>
-                        </svg>
-                    </div>
-                    Liked Songs
-                </button>
-            </div>
 
-            <!-- End of side bar-->
 
 
 
             <hr class="mx-4 mb-0 mt-2">
-
-            <!-- Start of playlists in sidebar-->
-
-            <ul id="playlistSidebar" class="nav px-2">
-                <li class="nav-item"><a href="https://open.spotify.com/playlist/3DCIpP8UPdnLnUGsuEsr97"
-                                        class="nav-link"><br>sleep deprived</a></li>
-                <li class="nav-item"><a href="https://open.spotify.com/playlist/5lwd9A96hNLfiYCLKBQRN2"
-                                        class="nav-link">adrenaline rush</a></li>
-                <li class="nav-item"><a href="https://open.spotify.com/playlist/0q0SddIoqUIMGm3Sgz3oMi"
-                                        class="nav-link">impulse</a></li>
-                <li class="nav-item"><a href="https://open.spotify.com/playlist/5ZPjSoSwQs5QVlZDZjfiFI" class="nav-link">sixth
-                    gear</a></li>
-                <li class="nav-item"><a href="https://open.spotify.com/playlist/3zA5kLtGx3ghhhdoO7mdvF" class="nav-link">3:14
-                    am</a></li>
-                <li class="nav-item"><a href="https://open.spotify.com/playlist/60HGr7YPE45JP6xaTWSbg4"
-                                        class="nav-link">serenity</a></li>
-            </ul>
-
-            <!-- End of playlists in sidebar-->
 
 
             <!-- Start of Install App Button-->
             <a href="login.html" id="installApp" class="d-block px-4 py-2">
                 Log Out
             </a>
-            <a href="#" id="installApp" class="d-block px-4 py-2">
-                <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                    <path
-                            d="M12 3a9 9 0 100 18 9 9 0 000-18zM1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12z">
-                    </path>
-                    <path
-                            d="M12 6.05a1 1 0 011 1v7.486l1.793-1.793a1 1 0 111.414 1.414L12 18.364l-4.207-4.207a1 1 0 111.414-1.414L11 14.536V7.05a1 1 0 011-1z">
-                    </path>
-                </svg> Install App
-            </a>
+
 
         </nav>
 
@@ -1056,10 +1006,9 @@
                                 <li>
                                     <img src="$playlist.photo_url">
 
-                                    IF PLAYLIST IS ALREADY LIKED
                                     <button type="button" class="btn me-3" onclick="unlikePlaylist($playlist.ID_Playlist);">
                                         <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                            <path d="M19.5 10c-2.483 0-4.5 2.015-4.5 4.5s2.017 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.017-4.5-4.5-4.5zm2.5 5h-5v-1h5v1zm-6.527 4.593c-1.108 1.086-2.275 2.219-3.473 3.407-6.43-6.381-12-11.147-12-15.808 0-4.005 3.098-6.192 6.281-6.192 2.197 0 4.434 1.042 5.719 3.248 1.279-2.195 3.521-3.238 5.726-3.238 3.177 0 6.274 2.171 6.274 6.182 0 .746-.156 1.496-.423 2.253-.527-.427-1.124-.768-1.769-1.014.122-.425.192-.839.192-1.239 0-2.873-2.216-4.182-4.274-4.182-3.257 0-4.976 3.475-5.726 5.021-.747-1.54-2.484-5.03-5.72-5.031-2.315-.001-4.28 1.516-4.28 4.192 0 3.442 4.742 7.85 10 13l2.109-2.064c.376.557.839 1.048 1.364 1.465z"/>
+                                            <path d="M19 24h-14c-1.104 0-2-.896-2-2v-17h-1v-2h6v-1.5c0-.827.673-1.5 1.5-1.5h5c.825 0 1.5.671 1.5 1.5v1.5h6v2h-1v17c0 1.104-.896 2-2 2zm0-19h-14v16.5c0 .276.224.5.5.5h13c.276 0 .5-.224.5-.5v-16.5zm-7 7.586l3.293-3.293 1.414 1.414-3.293 3.293 3.293 3.293-1.414 1.414-3.293-3.293-3.293 3.293-1.414-1.414 3.293-3.293-3.293-3.293 1.414-1.414 3.293 3.293zm2-10.586h-4v1h4v-1z"/>
                                         </svg>
                                     </button>
 
