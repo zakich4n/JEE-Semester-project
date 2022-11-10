@@ -1,10 +1,15 @@
 package project.spotEEfy.web.controller;
 
+
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import project.spotEEfy.core.dao.LikeDAO;
 import project.spotEEfy.core.entity.User;
 import project.spotEEfy.core.service.UserService;
 import project.spotEEfy.web.API.CallbackAPI;
@@ -28,20 +33,23 @@ public class LoginController {
 
     private final static Logger log = LoggerFactory.getLogger(LoginController.class);
 
-
     private UserService userService;
+
+    static User sessionUser;
+
     public LoginController(UserService userService) {
         this.userService = userService;
     }
        
 
+    static String tokeng;
 
 
     @GetMapping("/login")
     public String signInPage(ModelMap model) {
         //LOGGER.warn("LOGIN QUI SE LANCE");
         model.addAttribute("test","ouaiouaitest");
-        return "home";
+        return "login";
     }
 
     @GetMapping("/error")
@@ -62,6 +70,8 @@ public class LoginController {
     public String test(@RequestParam("access_token") String token) {
         log.warn("test token: " + token);
 
+        tokeng = token;
+
         StringBuilder responseBody = new StringBuilder();
         try {
             URL url = new URL("https://api.spotify.com/v1/me");
@@ -74,8 +84,9 @@ public class LoginController {
             con.setRequestProperty("Content-Type","application/json");
             con.setRequestProperty("Accept","application/json");
             con.setRequestMethod("GET");
-            log.warn("con : "+ con.getContent());
-            log.warn("con : "+ con.getRequestProperties());
+            log.warn("connected");
+            //log.warn("con : "+ con.getContent());
+            //log.warn("con : "+ con.getRequestProperties());
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String output;
 
@@ -83,26 +94,85 @@ public class LoginController {
             while ((output = in.readLine()) != null) {
                 response.append(output);
             }
-
             in.close();
             // printing result from response
             log.warn("Response:-" + response.toString());
 
+            //TODO change id user to string
+            String jsonString = response.toString() ; //assign your JSON String here
+            JSONObject obj = new JSONObject(jsonString);
+            String username  = obj.getString("display_name");
+            String email  = obj.getString("email");
+            String ID_User  = obj.getString("id");
+            String country  = obj.getString("country");
 
 
+            log.warn(username  + " " + email + " "+ ID_User + " "+ country);
+
+            sessionUser = new User(ID_User, email, username, country);
+            userService.saveUser(sessionUser);
+            log.warn("save User :", sessionUser.getID_User());
             //InputStream inputStream = con.getInputStream();
             //responseBody.append(con.getResponseMessage());
             //log.warn("response message user " + String.valueOf(responseBody));
-
             //log.warn("response body user " + String.valueOf(inputStream));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "redirect:/wait";
+    }
+
+    @GetMapping("/wait")
+    public String getUserData(User user) {
+
+        StringBuilder responseBody = new StringBuilder();
+        try {
+            URL url = new URL("https://api.spotify.com/v1/users/"+ sessionUser.getID_User()+ "/playlists");
+
+
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+
+            con.setRequestProperty("Authorization", "Bearer "+ tokeng);
+            con.setRequestProperty("Content-Type","application/json");
+            con.setRequestProperty("Accept","application/json");
+            con.setRequestMethod("GET");
+            log.warn("we will get playlist");
+            BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            String output;
+
+            StringBuffer response = new StringBuffer();
+            while ((output = in.readLine()) != null) {
+                response.append(output);
+            }
+            in.close();
+            // printing result from response
+            log.warn("Response_playlist:-" + response.toString());
+
+
+
+            //TODO change id user to string
+
+            String jsonString = response.toString() ; //assign your JSON String here
+            JSONObject obj = new JSONObject(jsonString);
+            String username  = obj.getString("display_name");
+            String email  = obj.getString("email");
+            String ID_User  = obj.getString("id");
+            String country  = obj.getString("country");
+
+
+            log.warn(username  + " " + email + " "+ ID_User + " "+ country);
+
+            sessionUser = new User(ID_User, email, username, country);
+            userService.saveUser(sessionUser);
+            log.warn("save User :", sessionUser.getID_User());
+
 
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-        return "home";
+        return "redirect:/home";
     }
+
 
 }

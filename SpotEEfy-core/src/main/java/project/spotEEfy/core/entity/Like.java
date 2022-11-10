@@ -1,10 +1,7 @@
 package project.spotEEfy.core.entity;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
 @Entity
 public class Like{
@@ -13,10 +10,18 @@ public class Like{
     private Long id;
 
     @OneToOne
+    @JoinColumn(name = "ID_User")
     private User user;
 
     @OneToOne
+    @JoinColumn(name = "playlist_id")
     private Playlist playlist;
+
+    public Like(User user, Playlist playlist) {
+        this.user = user;
+        this.playlist = playlist;
+    }
+
 
     public Long getId() {
         return id;
@@ -26,11 +31,7 @@ public class Like{
         this.id = id;
     }
 
-    public Like(User user,Playlist playlist, Long id) {
-        this.user = user;
-        this.playlist = playlist;
-        this.id = id;
-    }
+
 
     public Like(){
     }

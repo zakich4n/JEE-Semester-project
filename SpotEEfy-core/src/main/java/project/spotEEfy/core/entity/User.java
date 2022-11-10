@@ -8,7 +8,7 @@ import javax.persistence.Id;
 public class User {
 
     @Id
-    private Long ID_User;
+    private String ID_User;
 
     private String email;
     private String username;
@@ -17,13 +17,11 @@ public class User {
     private String sexe;
     private String Country;
 
-    public User(Long ID_User, String email, String username, String password, int age, String sexe, String country) {
+
+    public User(String ID_User, String email, String username, String country) {
         this.ID_User = ID_User;
         this.email = email;
         this.username = username;
-        this.password = password;
-        this.Age = age;
-        this.sexe = sexe;
         this.Country = country;
     }
 
@@ -34,12 +32,12 @@ public class User {
     }
 
 
-    public void setID_User(Long id) {
+    public void setID_User(String id) {
         this.ID_User = id;
     }
 
 
-    public Long getID_User() {
+    public String getID_User() {
         return ID_User;
     }
 

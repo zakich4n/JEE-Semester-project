@@ -5,7 +5,6 @@ import project.spotEEfy.core.entity.Playlist;
 import project.spotEEfy.core.entity.Song;
 import project.spotEEfy.core.exception.IDNotFoundException;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,6 +36,10 @@ public class PlaylistService {
         } else {
             throw new IDNotFoundException("playlist ID");
         }
+    }
+
+    public List<Playlist> getAllPlaylistFromUser(String ID_user) {
+        return playlistDAO.getAllPlaylistFromUser(ID_user);
     }
 }
 
