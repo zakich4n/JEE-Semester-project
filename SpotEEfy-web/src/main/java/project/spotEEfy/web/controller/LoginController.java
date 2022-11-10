@@ -8,20 +8,14 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import project.spotEEfy.core.service.UserService;
 import org.springframework.web.bind.annotation.*;
-import project.spotEEfy.core.entity.User;
-import project.spotEEfy.core.service.UserService;
-import project.spotEEfy.web.API.CallbackAPI;
 //      import project.spotEEfy.core.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.QueryParam;
+
 import javax.ws.rs.core.Context;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
+
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
