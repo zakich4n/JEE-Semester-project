@@ -46,9 +46,6 @@ public class PlaylistService {
     }
 
 
-    public void likePlaylist(User user) {
-
-    }
 }
 
 

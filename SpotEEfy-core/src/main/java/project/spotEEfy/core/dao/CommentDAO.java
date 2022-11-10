@@ -5,4 +5,6 @@ import project.spotEEfy.core.entity.Comment;
    
 public interface CommentDAO extends JpaRepository<Comment, Long> {
 
+
+
 }

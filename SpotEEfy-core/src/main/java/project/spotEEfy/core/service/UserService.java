@@ -23,7 +23,7 @@ public class UserService {
 
     public void saveUser(User user) { userDAO.save(user); }
 
-    //TODO: made this one with the exception idnotfound if needed
+    //TODO: made this one with the exception id notfound if needed
     public void deleteUser(User user) { userDAO.delete(user); }
 
     public long countAll() { return userDAO.count(); }
