@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
-public interface PlaylistDAO extends JpaRepository<Playlist, Long> {
+public interface PlaylistDAO extends JpaRepository<Playlist, String> {
 
     @Query("SELECT p FROM Playlist p WHERE p.user = :id")
     public List<Playlist> getAllPlaylistFromUser(@Param("id") String id);

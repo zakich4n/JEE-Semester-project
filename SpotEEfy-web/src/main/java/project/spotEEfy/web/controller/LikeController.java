@@ -18,12 +18,12 @@ public class LikeController {
 
 
     @GetMapping("/like")
-    public void likingPlaylist(@RequestParam("playlist") Long id) {
+    public void likingPlaylist(@RequestParam("playlist") String id) {
         likeService.likePlaylist(playlistService.getPlaylistByID(id),sessionUser );
     }
 
 @GetMapping("/unlike")
-    public void unlikePlaylist(@RequestParam("playlist") Long id) {
+    public void unlikePlaylist(@RequestParam("playlist") String id) {
         likeService.unlikePlaylist(sessionUser, playlistService.getPlaylistByID(id));
     }
 
