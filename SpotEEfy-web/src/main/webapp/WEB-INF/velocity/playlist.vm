@@ -829,6 +829,53 @@
         display: block;
     }
 
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,900;1,900&family=Raleway:ital,wght@0,900;1,900&family=Roboto+Mono:ital,wght@1,700&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap");
+
+    html,
+    body {
+        background-image: linear-gradient(#3a1c1c, #121212);
+        line-height: 1.6;
+        color: white;
+
+        margin: 0;
+        padding: 0;
+        font-family: "Helvetica Neue", helvetica, arial, "Hiragino Kaku Gothic Pro",
+        "MS Gothic", sans-serif, "Montserrat";
+    }
+
+    .play-btn:not(:hover) {
+        background: rgb(11, 221, 29);
+        opacity: 0;
+    }
+
+    @import url(//db.onlinewebfonts.com/c/860c3ec7bbc5da3e97233ccecafe512e?family=Circular+Std+Book);
+
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,900;1,900&family=Raleway:ital,wght@0,900;1,900&family=Roboto+Mono:ital,wght@1,700&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap");
+    :root {
+        --main-font: "Montserrat", sans-serif;
+        --spotify-green: #1db954;
+        --spotify-grey: #8a8a8a;
+        --spotify-white: #eaeaea;
+        --spotify-dark-bg: #000000;
+        --spotify-darker-bg: #121212;
+    }
+
+    .albumbody{
+
+        margin-left: 10%;
+    }
+
+
+    .albumbody{
+
+        margin-left: 10%;
+    }
+
+
     .dropdownMenuButton1-dropContent > a {
         text-decoration: none;
         color:white;
@@ -838,6 +885,7 @@
         display: flex;
         flex-direction: column;
     }
+
 </style>
 
 
@@ -958,69 +1006,61 @@
             <!-- feed do conteudo principal -->
             <main id="main" class="p-4">
 
-                <!-- seção inicial (header) -->
-                <section id="feedHeader">
+
+                <div class="BohemianAlbum jumbotron mt-4 ml-5 justify-content-between ">
+                    <div class="albumbody d-flex ml-4">
+                        <div class=" mb-4">
+                            <img id="album-image-cover" src=$playlist.photo_url class="img-fluid" width="200px" height="200px">
+                        </div>
+
+                        <div class="mt-5 mx-2">
+                            <p><small><b>Playlist</b></small></p>
+                            <h2 class="mt-0" id="album-artist-name">$playlist.name</h2>
+                            <div class="d-flex">
+                                <img class="mx-1" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_x96.png"  alt="" height="30px" width="30px" style="border-radius: 50%;">
+                                <div><span><small><b>$playlist.user  </b></small></span></div>
+                            </div>
 
 
+                        </div>
+                    </div>
+                </div>
 
+                <h2 class="fw-bold" id="greeting" style="padding-bottom: 30px">Comments</h2>
 
+                #foreach($comment in $comment_list)
 
-
-                    <!-- start of greeting -->
-                    <h2 class="fw-bold" id="greeting">Your Playlist</h2>
-                    <!-- end of greeting -->
-
-                <section class="feedPlaylist">
-                    <br>
-                    <br>
-                    <ul class="playlists" style="columns: 6;-webkit-columns: 6;-moz-columns: 6;">
-                    #foreach($playlist in $created_playlists)
-                            <li>
-                                <img src="$playlist.photo_url">
-
-                                <button type="button" class="btn me-3" onclick="unlikePlaylist($playlist.ID_Playlist)">
-                                    <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                        <path d="M19.5 10c-2.483 0-4.5 2.015-4.5 4.5s2.017 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.017-4.5-4.5-4.5zm2.5 5h-2v2h-1v-2h-2v-1h2v-2h1v2h2v1zm-6.527 4.593c-1.108 1.086-2.275 2.219-3.473 3.407-6.43-6.381-12-11.147-12-15.808 0-4.005 3.098-6.192 6.281-6.192 2.197 0 4.434 1.042 5.719 3.248 1.279-2.195 3.521-3.238 5.726-3.238 3.177 0 6.274 2.171 6.274 6.182 0 .746-.156 1.496-.423 2.253-.527-.427-1.124-.768-1.769-1.014.122-.425.192-.839.192-1.239 0-2.873-2.216-4.182-4.274-4.182-3.257 0-4.976 3.475-5.726 5.021-.747-1.54-2.484-5.03-5.72-5.031-2.315-.001-4.28 1.516-4.28 4.192 0 3.442 4.742 7.85 10 13l2.109-2.064c.376.557.839 1.048 1.364 1.465z"/>
-                                    </svg>
-                                </button>
-
-                                <span>"$playlist.name"</span>
-                                <p><br>"$playlist.user.username"</p>
-                            </li>
+                    <div class="d-flex">
+                        <img class="mx-1" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_x96.png"  alt="" height="30px" width="30px" style="border-radius: 50%;">
+                        <div><span><small><b>$comment.user.username</b></small></span></div>
+                    </div>
+                    $comment.text
+                    #if( $foreach.hasNext )
+                        <hr class="mx-4 mb-0 mt-2">
                     #end
-                </section>
+                #end
 
 
-                    <h2 class="fw-bold" id="greeting">Liked Playlist</h2>
-                    <!-- end of greeting -->
-
-                    <section class="feedPlaylist">
-                        <br>
-                        <br>
-                        <ul class="playlists" style="columns: 6;-webkit-columns: 6;-moz-columns: 6;">
-                            #foreach($playlist in $liked_playist)
-                                <li>
-                                    <img src="$playlist.photo_url">
-
-                                    <button type="button" class="btn me-3" onclick="unlikePlaylist($playlist.ID_Playlist);">
-                                        <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                            <path d="M19 24h-14c-1.104 0-2-.896-2-2v-17h-1v-2h6v-1.5c0-.827.673-1.5 1.5-1.5h5c.825 0 1.5.671 1.5 1.5v1.5h6v2h-1v17c0 1.104-.896 2-2 2zm0-19h-14v16.5c0 .276.224.5.5.5h13c.276 0 .5-.224.5-.5v-16.5zm-7 7.586l3.293-3.293 1.414 1.414-3.293 3.293 3.293 3.293-1.414 1.414-3.293-3.293-3.293 3.293-1.414-1.414 3.293-3.293-3.293-3.293 1.414-1.414 3.293 3.293zm2-10.586h-4v1h4v-1z"/>
-                                        </svg>
-                                    </button>
-
-                                    <span>"$playlist.name"</span>
-                                    <p><br>"$playlist.user.username"</p>
-                                </li>
-                            #end
-                    </section>
-                <!--recently played-->
-
-                <!--poular new releases-->
+                <h2 class="fw-bold" id="greeting" style="padding-top: 30px; padding-bottom: 30px">Song List</h2>
 
 
-                <!--mood-->
+                #foreach($song in $song_list)
 
-                        <!--Popular new releases-->
+                    <div class="d-flex">
+                        <img class="mx-1" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_x96.png"  alt="" height="80px" width="80px" style="border-radius: 10%;">
+                        <div>
+                            <span><b>$song.title</b></span>
+                            <br/>
+                            <span><i>$song.artist</i></span>
+                        </div>
+                    </div>
+                    #if( $foreach.hasNext )
+                        <hr class="mx-4 mb-0 mt-2">
+                    #end
+                #end
+
+
+                    <!--Popular new releases-->
             </main>
         </div>
     </div>
@@ -1029,24 +1069,6 @@
 </div>
 
 <script>
-    function httpGetAsync(theUrl, callback)
-    {
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.onreadystatechange = function() {
-            if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-                callback(xmlHttp.responseText);
-        }
-        xmlHttp.open("GET", theUrl, true); // true for asynchronous
-        xmlHttp.send(null);
-    }
-
-    function likePlaylist(Playlist_ID) {
-        httpGetAsync("http://localhost/SpotEEfy_web_war_exploded/like?playlist="+Playlist_ID)
-    }
-
-    function unlikePlaylist(Playlist_ID) {
-        httpGetAsync("http://localhost/SpotEEfy_web_war_exploded/unlike?playlist="+Playlist_ID)
-    }
 
     function playlistLikedToast() {
         var x = document.getElementById("snackbar");
