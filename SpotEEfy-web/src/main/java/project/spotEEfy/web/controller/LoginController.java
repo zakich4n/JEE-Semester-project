@@ -41,7 +41,7 @@ public class LoginController {
     public String signInPage(ModelMap model) {
         //LOGGER.warn("LOGIN QUI SE LANCE");
         model.addAttribute("test","ouaiouaitest");
-        return "login";
+        return "home";
     }
 
     @GetMapping("/error")

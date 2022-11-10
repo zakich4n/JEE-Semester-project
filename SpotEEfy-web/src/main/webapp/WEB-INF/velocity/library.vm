@@ -16,7 +16,6 @@
 
 
 <body>
-
 <style>
     * {
         box-sizing: border-box;
@@ -795,6 +794,7 @@
     }
 </style>
 
+
 <div id="app" class="d-flex flex-column">
 
     <div id="principal" class="d-flex">
@@ -821,7 +821,7 @@
 
             <ul class="nav flex-column px-2 my-4">
                 <li class="nav-item">
-                    <a href="/" class="nav-link ativo"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                    <a href="/" class="nav-link"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                         <path
                                 d="M13.5 1.515a3 3 0 00-3 0L3 5.845a2 2 0 00-1 1.732V21a1 1 0 001 1h6a1 1 0 001-1v-6h4v6a1 1 0 001 1h6a1 1 0 001-1V7.577a2 2 0 00-1-1.732l-7.5-4.33z">
                         </path>
@@ -835,7 +835,7 @@
                     </svg> Search</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/library" class="nav-link"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                    <a href="/library" class="nav-link ativo"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                         <path
                                 d="M14.5 2.134a1 1 0 011 0l6 3.464a1 1 0 01.5.866V21a1 1 0 01-1 1h-6a1 1 0 01-1-1V3a1 1 0 01.5-.866zM16 4.732V20h4V7.041l-4-2.309zM3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zm6 0a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1z">
                         </path>
@@ -971,81 +971,15 @@
                 <section id="feedHeader">
 
                     <!-- start of greeting -->
-                    <h2 class="fw-bold" id="greeting">Welcome Back</h2>
+                    <h2 class="fw-bold" id="greeting">Your Playlist</h2>
                     <!-- end of greeting -->
 
-                    <!-- recent playlists -->
-                    <ul id="playlistsRecentes" class="mb-5">
-                        <li>
-                            <img src="./assets/1.jpeg" :alt="playlist.nome">
-                            <span class="fw-semibold ms-3 me-auto">sleep deprived</span>
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                        </li>
 
-                        <li>
-                            <img src="./assets/2.jpeg" :alt="playlist.nome">
-                            <span class="fw-semibold ms-3 me-auto">adrenaline rush</span>
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                        </li>
-
-                        <li>
-                            <img src="./assets/3.jpeg" :alt="playlist.nome">
-                            <span class="fw-semibold ms-3 me-auto">impulse</span>
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                        </li>
-
-                        <li>
-                            <img src="./assets/4.jpeg" :alt="playlist.nome">
-                            <span class="fw-semibold ms-3 me-auto">sixth gear</span>
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                        </li>
-
-                        <li>
-                            <img src="./assets/5.jpeg" :alt="playlist.nome">
-                            <span class="fw-semibold ms-3 me-auto">3:14 am</span>
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                        </li>
-
-
-                        <li>
-                            <img src="./assets/6.jpeg" :alt="playlist.nome">
-                            <span class="fw-semibold ms-3 me-auto">serenity</span>
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-
-                        </li>
-
-                    </ul>
-                </section>
 
 
 
                 <!-- Your top mixes -->
                 <section class="feedPlaylist">
-                    <h4 class="mb-3"><a href="#"><b>Your top mixes</b></a></h4>
                     <a class="see-all" href="#">SEE-ALL</a>
                     <br>
                     <br>
@@ -1116,218 +1050,85 @@
                             <p><br>The Fat Rat, Alan Walker, The Chainsmokers and more</p>
                         </li>
                     </ul>
+
+                    <ul class="playlists">
+                        <li>
+                            <img src="./assets/7.jpeg">
+                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                                <path
+                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+                                </path>
+                            </svg></button>
+                            <span>Pop Mix</span>
+                            <p><br>SHY Martin, Lauv, Sia and more</p>
+                        </li>
+
+                        <li>
+                            <img src="./assets/8.jpeg">
+                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                                <path
+                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+                                </path>
+                            </svg></button>
+                            <span>Chill Mix</span>
+                            <p><br>Lauv, Oh Wonder, The Chainsmokers and more</p>
+                        </li>
+
+                        <li>
+                            <img src="./assets/9.jpeg">
+                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                                <path
+                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+                                </path>
+                            </svg></button>
+                            <span>Moody Mix</span>
+                            <p><br>Charlie Puth, Oh Wonder, Alec Benjamin and more</p>
+                        </li>
+
+                        <li>
+                            <img src="./assets/10.jpeg">
+                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                                <path
+                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+                                </path>
+                            </svg></button>
+                            <span>Latin Mix</span>
+                            <p><br>Timothy Infinite, Shakira and more</p>
+                        </li>
+
+                        <li>
+                            <img src="./assets/11.jpeg">
+                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                                <path
+                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+                                </path>
+                            </svg></button>
+                            <span>Hindi Mix</span>
+                            <p><br>Ritviz, Nuclea, Atif Aslam and more</p>
+                        </li>
+
+                        <li>
+                            <img src="./assets/12.jpeg">
+                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                                <path
+                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
+                                </path>
+                            </svg></button>
+                            <span>2010s Mix</span>
+                            <p><br>The Fat Rat, Alan Walker, The Chainsmokers and more</p>
+                        </li>
+                    </ul>
+
+
                 </section>
 
                 <!--recently played-->
-                <section class="feedPlaylist">
-                    <h4 class="mb-3"><a href="#">Recently Played</a></h4>
-                    <a class="see-all" href="#">SEE-ALL</a>
-                    <br>
-                    <br>
-                    <ul class="playlists">
-                        <li>
-                            <img src="./assets/1.jpeg">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>sleep deprived</span>
-                            <p><br>i'll tell you a story before it tells itself</p>
-                        </li>
-
-                        <li>
-                            <img src="./assets/2.jpeg">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>adrenaline rush</span>
-                            <p><br>for the night when you've piled up everything and it's deadline tomorrow</p>
-                        </li>
-
-                        <li>
-                            <img src="./assets/3.jpeg">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>impulse</span>
-                            <p><br>⚠️ the neighbors are gonna call the cops</p>
-                        </li>
-
-                        <li>
-                            <img src="./assets/4.jpeg">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>sixth gear</span>
-                            <p><br>nothings gonna stop me now (lol, idk how to drive yet)</p>
-                        </li>
-
-                        <li>
-                            <img src="./assets/5.jpeg">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>3:14 am</span>
-                            <p><br>and thoughts of past and future kept him awake</p>
-                        </li>
-
-                        <li>
-                            <img src="./assets/6.jpeg">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>serenity</span>
-                            <p><br>is it tears or just the pouring rain?</p>
-                        </li>
-                    </ul>
-                </section>
 
                 <!--poular new releases-->
-                <section class="feedPlaylist">
-                    <h4 class="mb-3"><a href="#">Popular New releases</a></h4>
-                    <a class="see-all" href="#">SEE-ALL</a>
-                    <br>
-                    <br>
-                    <ul class="playlists">
-                        <li>
-                            <img src="./assets/celestial.jpg">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Celestial</span>
-                            <p><br>Ed Shreeran</p>
-                        </li>
 
-                        <li>
-                            <img src="./assets/this is why.jpg">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>this Is Why</span>
-                            <p><br>Paramore</p>
-                        </li>
-
-                        <li>
-                            <img src="./assets/igotissu.jpg">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>I GOT ISSUES</span>
-                            <p><br>YG</p>
-                        </li>
-
-                        <li>
-                            <img src="./assets/uhoh.jpg">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>uh oh</span>
-                            <p><br>Tate McRae</p>
-                        </li>
-
-                        <li>
-                            <img src="./assets/bodypaint.jpg">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Body Paint</span>
-                            <p><br>Arctic Monkeys</p>
-                        </li>
-                </section>
 
                 <!--mood-->
-                <section class="feedPlaylist">
-                    <h4 class="mb-3"><a href="#">Mood</a></h4>
-                    <a class="see-all" href="#">SEE-ALL</a>
-                    <br>
-                    <br>
-                    <ul class="playlists">
-                        <li>
-                            <img src="./assets/moodbooster.jpg">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Mood Booster</span>
-                            <p><br>Get happy with today's dose of feel-good songs!</p>
-                        </li>
 
-                        <li>
-                            <img src="./assets/feelinggood.jpg">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Feelin' Good</span>
-                            <p><br>Feel good with this positively timeless playlist!</p>
-                        </li>
-
-                        <li>
-                            <img src="./assets/dark&stormy.jpg">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Dark & Stormy</span>
-                            <p><br>Beautifully dark, dramatic tracks.</p>
-                        </li>
-
-                        <li>
-                            <img src="./assets/feelgoodpiano.jpg">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Feel Good Piano</span>
-                            <p><br>Happy vibes for an upbeat morning.</p>
-                        </li>
-
-                        <li>
-                            <img src="./assets/feelingmyself.jpg">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Feelin' Myself</span>
-                            <p><br>The hip-hop playlist that's a whole mood. Art By Laci Jordan; Cover: Lakeyah</p>
-                        </li>
-
-                        <li>
-                            <img src="./assets/chilltracks.jpeg">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Chill Tracks</span>
-                            <p><br>Softer kinda dance.</p>
-                        </li>
                         <!--Popular new releases-->
             </main>
         </div>
@@ -1347,7 +1148,7 @@
             <div id="botomIcon">
                 <ul class="nav flex-row px-2 my-4">
                     <li class="nav-item">
-                        <a href="#" class="nav-link ativo d-flex flex-column align-items-center"><svg role="img" height="20"
+                        <a href="#" class="nav-link d-flex flex-column align-items-center"><svg role="img" height="20"
                                                                                                       width="20" fill="white" viewBox="0 0 24 24">
                             <path
                                     d="M13.5 1.515a3 3 0 00-3 0L3 5.845a2 2 0 00-1 1.732V21a1 1 0 001 1h6a1 1 0 001-1v-6h4v6a1 1 0 001 1h6a1 1 0 001-1V7.577a2 2 0 00-1-1.732l-7.5-4.33z">
