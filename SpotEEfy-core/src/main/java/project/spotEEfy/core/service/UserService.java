@@ -3,6 +3,7 @@ package project.spotEEfy.core.service;
 import com.sun.xml.bind.v2.model.core.ID;
 import org.springframework.stereotype.Service;
 import project.spotEEfy.core.dao.UserDAO;
+import project.spotEEfy.core.entity.Playlist;
 import project.spotEEfy.core.entity.User;
 
 import javax.inject.Named;
@@ -35,6 +36,8 @@ public class UserService {
     public User getUserById(long id) { return userDAO.getUserByID_User(id); }
 
     public List<User> getAllUsers() { return userDAO.getAllUsers(); }
+
+    public void getPlaylistFromUser() {}
 
 }
 
