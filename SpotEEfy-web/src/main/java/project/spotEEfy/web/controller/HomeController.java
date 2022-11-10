@@ -1,6 +1,8 @@
 package project.spotEEfy.web.controller;
 
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +28,9 @@ public class HomeController {
     private PlaylistService playlistService;
     private LikeService likeService;
 
+    private final static Logger log = LoggerFactory.getLogger(HomeController.class);
+
+
     //TODO: add playlist in js or java and the user name would be cool too
     @GetMapping("/home")
     public String homePage(ModelMap model){
@@ -38,7 +43,7 @@ public class HomeController {
     public String goToLibrary(ModelMap model) {
         //if(sessionUser.getID_User().length() < 2) return "login";
         model.addAttribute("session_user", sessionUser);
-
+        log.warn("IS there something in session user : "+ sessionUser.getID_User());
         Boolean isEmpty=true;
         try {
             playlistService.doesUserHaveNoPlaylist(sessionUser);

@@ -17,7 +17,7 @@ public class PlaylistController {
 
 
     @GetMapping("/playlist")
-    public String getLibrary(@RequestParam("id") Long id, ModelMap model) {
+    public String getLibrary(@RequestParam("id") String id, ModelMap model) {
         Boolean isLoggedIn=false;
         try{
             sessionUser.getID_User().length();

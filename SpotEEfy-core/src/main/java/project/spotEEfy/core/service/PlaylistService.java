@@ -32,7 +32,7 @@ public class PlaylistService {
         playlistDAO.save(playlist);
     }
 
-    public Playlist getPlaylistByID(Long id) {
+    public Playlist getPlaylistByID(String id) {
         return playlistDAO.findById(id).get();
     }
 
