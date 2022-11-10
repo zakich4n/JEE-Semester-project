@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SpotEEfy</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="register-main-container">
+        <div class="right">
+            <img src="images/temporary.jpeg" alt="'temp"/>
+        </div>
+        <div class="left">
+            <div class="button-container">
+                <div
+                        id="activate-signup-form"
+                >
+                <p></p>
+            </div>
+            <span
+                    id="activate-login-form"
+            >
+            Log In
+            </span>
+        </div>
+
+        <div>
+            <!--
+            <form
+                    id="loginForm"
+                    action="register.php"
+                    method="POST"
+                    style="display:flex"
+            >
+            <p>Email/Username</p>
+
+            <input
+                    type="text"
+                    name="usernameOrEmail"
+                    placeholder="Email/Username"
+            />
+
+            <p>Password</p>
+            <input type="password" name="password" placeholder="Password" />
+            <button
+                    type="submit"
+                    class="button-green login-button"
+                    name="login-submit"
+            >
+            Log In
+            </button>
+            <a href="#" class="white-text">
+                Forgotten Password
+            </a>
+            </form>
+            -->
+            <a class="bn31"  ><span class="bn31span" id="spotify_button">Login with Spotify</span></a>
+        </div>
+    </div>
+        <script>
+            var client_id = '0c2bf5c0e34e44e283582f726b9ecce2';
+            var redirect_uri = 'http://localhost:8888/callback';
+            const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+            function generateString(length) {
+                let result = ' ';
+                const charactersLength = characters.length;
+                for ( let i = 0; i < length; i++ ) {
+                    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+                }
+
+                return result;
+            }
+            var state = generateString(16);
+
+
+            var scope = 'user-read-private user-read-email';
+
+            var url = 'https://accounts.spotify.com/authorize';
+            url += '?response_type=token';
+            url += '&client_id=' + encodeURIComponent(client_id);
+            url += '&scope=' + encodeURIComponent(scope);
+            url += '&redirect_uri=' + encodeURIComponent(redirect_uri);
+            url += '&state=' + encodeURIComponent(state);
+
+            var button_signin_spotify=document.getElementById('spotify_button')
+            button_signin_spotify.addEventListener('click', function() {
+                window.location=url;
+            })
+
+        </script>
+    </div>
+</body>
+</html>
