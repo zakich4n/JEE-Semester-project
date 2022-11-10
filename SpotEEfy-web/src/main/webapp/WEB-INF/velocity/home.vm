@@ -810,18 +810,14 @@
                     <path
                             d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.669 11.538a.498.498 0 0 1-.686.165c-1.879-1.147-4.243-1.407-7.028-.77a.499.499 0 0 1-.222-.973c3.048-.696 5.662-.397 7.77.892a.5.5 0 0 1 .166.686zm.979-2.178a.624.624 0 0 1-.858.205c-2.15-1.321-5.428-1.704-7.972-.932a.625.625 0 0 1-.362-1.194c2.905-.881 6.517-.454 8.986 1.063a.624.624 0 0 1 .206.858zm.084-2.268C10.154 5.56 5.9 5.419 3.438 6.166a.748.748 0 1 1-.434-1.432c2.825-.857 7.523-.692 10.492 1.07a.747.747 0 1 1-.764 1.288z" />
                 </svg>
-                <span class="fw-semibold ms-2" style="font-size: 1.5em;">Spotify</span>
+                <span class="fw-semibold ms-2" style="font-size: 1.5em;">SpotEEfy</span>
             </a>
-
-            <!-- End of logo -->
-
-
 
             <!-- Start of side bar-->
 
             <ul class="nav flex-column px-2 my-4">
                 <li class="nav-item">
-                    <a href="/" class="nav-link ativo"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                    <a href="/" class="nav-link"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                         <path
                                 d="M13.5 1.515a3 3 0 00-3 0L3 5.845a2 2 0 00-1 1.732V21a1 1 0 001 1h6a1 1 0 001-1v-6h4v6a1 1 0 001 1h6a1 1 0 001-1V7.577a2 2 0 00-1-1.732l-7.5-4.33z">
                         </path>
@@ -835,7 +831,7 @@
                     </svg> Search</a>
                 </li>
                 <li class="nav-item">
-                    <a href="/library" class="nav-link"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
+                    <a href="/library" class="nav-link ativo"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                         <path
                                 d="M14.5 2.134a1 1 0 011 0l6 3.464a1 1 0 01.5.866V21a1 1 0 01-1 1h-6a1 1 0 01-1-1V3a1 1 0 01.5-.866zM16 4.732V20h4V7.041l-4-2.309zM3 22a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1zm6 0a1 1 0 01-1-1V3a1 1 0 012 0v18a1 1 0 01-1 1z">
                         </path>
@@ -843,70 +839,27 @@
                 </li>
             </ul>
 
-            <div id="underList">
-                <button>
-                    <div class="plus_bttn">
-                        <svg role="img" height="12" width="12" aria-hidden="true" viewBox="0 0 16 16">
-                            <path
-                                    d="M15.25 8a.75.75 0 01-.75.75H8.75v5.75a.75.75 0 01-1.5 0V8.75H1.5a.75.75 0 010-1.5h5.75V1.5a.75.75 0 011.5 0v5.75h5.75a.75.75 0 01.75.75z">
-                            </path>
-                        </svg>
-                    </div>
-                    Create Playlist
-                </button>
 
-                <button>
-                    <div class="heart_bttn">
-                        <svg role="img" height="12" width="12" aria-hidden="true" viewBox="0 0 16 16">
-                            <path
-                                    d="M15.724 4.22A4.313 4.313 0 0012.192.814a4.269 4.269 0 00-3.622 1.13.837.837 0 01-1.14 0 4.272 4.272 0 00-6.21 5.855l5.916 7.05a1.128 1.128 0 001.727 0l5.916-7.05a4.228 4.228 0 00.945-3.577z">
-                            </path>
-                        </svg>
-                    </div>
-                    Liked Songs
-                </button>
-            </div>
 
-            <!-- End of side bar-->
 
 
 
             <hr class="mx-4 mb-0 mt-2">
 
-            <!-- Start of playlists in sidebar-->
 
-            <ul id="playlistSidebar" class="nav px-2">
-                <li class="nav-item"><a href="https://open.spotify.com/playlist/3DCIpP8UPdnLnUGsuEsr97"
-                                        class="nav-link"><br>sleep deprived</a></li>
-                <li class="nav-item"><a href="https://open.spotify.com/playlist/5lwd9A96hNLfiYCLKBQRN2"
-                                        class="nav-link">adrenaline rush</a></li>
-                <li class="nav-item"><a href="https://open.spotify.com/playlist/0q0SddIoqUIMGm3Sgz3oMi"
-                                        class="nav-link">impulse</a></li>
-                <li class="nav-item"><a href="https://open.spotify.com/playlist/5ZPjSoSwQs5QVlZDZjfiFI" class="nav-link">sixth
-                    gear</a></li>
-                <li class="nav-item"><a href="https://open.spotify.com/playlist/3zA5kLtGx3ghhhdoO7mdvF" class="nav-link">3:14
-                    am</a></li>
-                <li class="nav-item"><a href="https://open.spotify.com/playlist/60HGr7YPE45JP6xaTWSbg4"
-                                        class="nav-link">serenity</a></li>
-            </ul>
+            #if($session_user)
 
-            <!-- End of playlists in sidebar-->
+                <a href="./logout" id="installApp" class="d-block px-4 py-2">
+                    Log Out
+                </a>
+
+            #else
+                <a href="./login" id="installApp" class="d-block px-4 py-2">
+                    Sign In
+                </a>
+            #end
 
 
-            <!-- Start of Install App Button-->
-            <a href="login.html" id="installApp" class="d-block px-4 py-2">
-                Log Out
-            </a>
-            <a href="#" id="installApp" class="d-block px-4 py-2">
-                <svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                    <path
-                            d="M12 3a9 9 0 100 18 9 9 0 000-18zM1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12z">
-                    </path>
-                    <path
-                            d="M12 6.05a1 1 0 011 1v7.486l1.793-1.793a1 1 0 111.414 1.414L12 18.364l-4.207-4.207a1 1 0 111.414-1.414L11 14.536V7.05a1 1 0 011-1z">
-                    </path>
-                </svg> Install App
-            </a>
 
         </nav>
 
@@ -951,11 +904,14 @@
                                             d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
                                 </svg>
                             </div>
-                            Taufeeq Riyaz
+                            #if($session_user)
+
+                                $session_user.username
+
+                            #else
+                                Sign in
+                            #end
                         </button>
-                        <div class="dropdownMenuButton1-dropContent">
-                            <a href="./login.html">Log Out</a>
-                        </div>
 
                     </div>
                 </div>
@@ -977,8 +933,8 @@
                     <!-- recent playlists -->
                     <ul id="playlistsRecentes" class="mb-5">
                         <li>
-                            <img src="./assets/1.jpeg" :alt="playlist.nome">
-                            <span class="fw-semibold ms-3 me-auto">sleep deprived</span>
+                            <img src="https://i.scdn.co/image/ab67706f000000028c1c17b5187d38bfdce93f11" :alt="playlist.nome">
+                            <span class="fw-semibold ms-3 me-auto">SZA is on top of the Hottest 50!</span>
                             <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                                 <path
                                         d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
@@ -987,8 +943,8 @@
                         </li>
 
                         <li>
-                            <img src="./assets/2.jpeg" :alt="playlist.nome">
-                            <span class="fw-semibold ms-3 me-auto">adrenaline rush</span>
+                            <img src="https://i.scdn.co/image/ab67706f000000022859d5c4213ce9353f40a553" :alt="playlist.nome">
+                            <span class="fw-semibold ms-3 me-auto">New music from Drake and 21 Savage.</span>
                             <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                                 <path
                                         d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
@@ -997,8 +953,8 @@
                         </li>
 
                         <li>
-                            <img src="./assets/3.jpeg" :alt="playlist.nome">
-                            <span class="fw-semibold ms-3 me-auto">impulse</span>
+                            <img src="https://i.scdn.co/image/ab67706f00000002cc30c9c5cf2114e3efd90d1b" :alt="playlist.nome">
+                            <span class="fw-semibold ms-3 me-auto">The biggest songs of the 2010s. Cover: Macklemore & Ryan Lewis.</span>
                             <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                                 <path
                                         d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
@@ -1007,8 +963,8 @@
                         </li>
 
                         <li>
-                            <img src="./assets/4.jpeg" :alt="playlist.nome">
-                            <span class="fw-semibold ms-3 me-auto">sixth gear</span>
+                            <img src="https://i.scdn.co/image/ab67706f0000000268844838c3611ace0755e0f5" :alt="playlist.nome">
+                            <span class="fw-semibold ms-3 me-auto">Rock legends & epic songs</span>
                             <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                                 <path
                                         d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
@@ -1017,8 +973,8 @@
                         </li>
 
                         <li>
-                            <img src="./assets/5.jpeg" :alt="playlist.nome">
-                            <span class="fw-semibold ms-3 me-auto">3:14 am</span>
+                            <img src="https://i.scdn.co/image/ab67706f0000000259571cd3bb5fb3daa4ecdf98" :alt="playlist.nome">
+                            <span class="fw-semibold ms-3 me-auto">Son des tout derniers hits chill</span>
                             <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                                 <path
                                         d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
@@ -1028,8 +984,8 @@
 
 
                         <li>
-                            <img src="./assets/6.jpeg" :alt="playlist.nome">
-                            <span class="fw-semibold ms-3 me-auto">serenity</span>
+                            <img src="https://i.scdn.co/image/ab67706f00000002820c9e2a324d195ec300e0a7" :alt="playlist.nome">
+                            <span class="fw-semibold ms-3 me-auto">Today's top Latin hits</span>
                             <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
                                 <path
                                         d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
