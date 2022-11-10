@@ -11,7 +11,7 @@ public class Playlist {
 
     @Id
     @Column
-    private Long ID_Playlist;
+    private String ID_Playlist;
 
 
     @ManyToOne
@@ -24,7 +24,7 @@ public class Playlist {
     @OneToMany
     private List<Song> songs;
 
-    public Playlist(Long ID_Playlist, User user, String name, String photo_url, List<Song> songs) {
+    public Playlist(String ID_Playlist, User user, String name, String photo_url, List<Song> songs) {
         this.ID_Playlist = ID_Playlist;
         this.user = user;
         this.name = name;
@@ -43,12 +43,12 @@ public class Playlist {
         this.user = user;
     }
 
-    public void setID_Playlist(Long id_playlist) {
+    public void setID_Playlist(String id_playlist) {
         this.ID_Playlist = id_playlist;
     }
 
 
-    public Long getID_Playlist() {
+    public String getID_Playlist() {
         return ID_Playlist;
     }
 

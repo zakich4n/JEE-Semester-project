@@ -14,6 +14,6 @@ public interface LikeDAO extends JpaRepository<Like, Long> {
     public List<Like> getLikesFromUserID(@Param("id") String id);
 
     @Query("SELECT l FROM Like l WHERE l.user = :id_user AND l.playlist = :id_playlist")
-    public Like getLikeFromUserAndPlaylist(@Param("id_playlist") Long id_playlist, @Param("id_user") String id_user );
+    public Like getLikeFromUserAndPlaylist(@Param("id_playlist") String id_playlist, @Param("id_user") String id_user );
 
 }

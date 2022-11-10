@@ -31,6 +31,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
+
 @Controller
 public class LoginController {
 
@@ -45,9 +46,38 @@ public class LoginController {
     public LoginController(UserService userService) {
         this.userService = userService;
     }
-       
 
     static String tokeng;
+
+    public List<List<String>> deparseSongList(String json){
+
+        List<List<String>> list = null;
+
+        String jsonString = json.toString() ; //assign your JSON String here
+        JSONObject obj = new JSONObject(jsonString);
+        JSONArray arr = obj.getJSONArray("items");
+        log.warn(arr.toString());
+        for (int i = 0; i < arr.length(); i++) {
+            List<String> listTmp = null;
+
+            String title = arr.getJSONObject(i).getJSONObject("track").getString("name");
+            JSONArray author_arr = arr.getJSONObject(i).getJSONObject("track").getJSONArray("artists");
+            String author = author_arr.getJSONObject(0).getString("name");
+            JSONArray photo_url_arr = arr.getJSONObject(i).getJSONObject("track").getJSONObject("album").getJSONArray("images");
+            String url_photo = photo_url_arr.getJSONObject(2).getString("url");
+
+            log.warn("result of the songs list call of index "+ i +" : " + author + " " + " "
+                    + url_photo );
+
+
+            listTmp.add(title);
+            listTmp.add(author);
+            listTmp.add(url_photo);
+            list.add(listTmp);
+        }
+
+        return list;
+    }
 
 
     @GetMapping("/login")
@@ -183,6 +213,7 @@ public class LoginController {
                 log.warn("result of the playlist call of index "+ i +" : " + ID_Playlist + " " + user_playlist + " "
                         + name + " " + songs_url + " "  + " " + photo_url );
 
+
                 URL url_songs = new URL(songs_url);
 
                 HttpURLConnection con_songs = (HttpURLConnection) url_songs.openConnection();
@@ -200,55 +231,15 @@ public class LoginController {
                 }
                 in_songs.close();
                 // printing result from response
-                log.warn("Response_songs:-" + response_songs.toString());
-
-
+                //log.warn("Response_songs:-" + response_songs.toString());
+                //List<List<String>> listSong = deparseSongList(response_songs.toString());
+                //log.warn("song after parse : " + listSong.toString());
             }
-
-
-            /*
-            sessionUser = new User();
-            userService.saveUser(sessionUser);
-            log.warn("save User :", sessionUser.getID_User());
-
-             */
-
-
-
-
 
         } catch (IOException e) {
             e.printStackTrace();
         }
         return "redirect:/home";
     }
-
-    public void deparseSongList(String json){
-
-        String title;
-        String author;
-        String url_photo;
-
-
-        String jsonString = json.toString() ; //assign your JSON String here
-        JSONObject obj = new JSONObject(jsonString);
-        JSONArray arr = obj.getJSONArray("items");
-        for (int i = 0; i < arr.length(); i++){
-             = arr.getJSONObject(i).getString("id");
-            user_playlist  = arr.getJSONObject(i).getJSONObject("owner").getString("display_name");
-            name  = arr.getJSONObject(i).getString("name");
-            songs_url = arr.getJSONObject(i).getJSONObject("tracks").getString("href");
-            //number_of_songs = Integer.parseInt(arr.getJSONObject(i).getJSONObject("tracks").getString("total"));
-            JSONArray photo_url_arr = arr.getJSONObject(i).getJSONArray("images");
-            for(int n = 0; n<photo_url_arr.length(); n++){
-                if(n == 1) {
-                    photo_url = photo_url_arr.getJSONObject(n).getString("url");
-                }
-            }
-
-            log.warn("result of the playlist call of index "+ i +" : " + ID_Playlist + " " + user_playlist + " "
-                    + nam
-    }
-
 
 }
