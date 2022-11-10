@@ -72,7 +72,10 @@ public class LoginController {
 
             con.setRequestProperty("Authorization", "Bearer "+ token);
             con.setRequestProperty("Content-Type","application/json");
+            con.setRequestProperty("Accept","application/json");
             con.setRequestMethod("GET");
+            log.warn("con : "+ con.getContent());
+            log.warn("con : "+ con.getRequestProperties());
             BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
             String output;
 
