@@ -885,6 +885,68 @@
         display: flex;
         flex-direction: column;
     }
+    .comment_box {
+        /* Cosmetic */
+        margin-left: 30px;
+        margin-top: 50px;
+
+        border-radius: 7px;
+        border-color: #BABABA;
+        box-shadow: 1px 5px 2px #EDEDED;
+        height: 130px;
+        width: 300px; /* Was 470px */
+
+        /* Text */
+        font-family: "Helvetica Neue", sans-serif;
+        font-size: 15px;
+        font-weight: normal;
+        color: #7A7A7A;
+
+        padding: 10px;
+    }
+
+    .comment_box:focus {
+        outline: none;
+        border-color: #7AB0E6
+    }
+
+    .div--hun{
+        display: flex;
+        justify-content: left !important;
+        align-items: left !important;
+    }
+
+    .form--hun{
+        float: left;
+        width: 10%;
+    }
+
+
+
+    .cPwEdQ {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        margin-block: 0px;
+        font-size: 1rem;
+
+        font-weight: 500;
+        font-family: var(--font-family,CircularSp,CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva,var(--fallback-fonts,sans-serif));
+        color: inherit;
+        background-color: white !important;
+
+    }
+
+    .QO9loc33XC50mMRUCIvf {
+        border: 0;
+        border-radius: 500px;
+        color: #000;
+        height: 40px;
+        width: 350px !important;
+        padding: 6px 48px;
+        text-overflow: ellipsis;
+        float: left !important;
+        background: url("data:image/svg+xml,%3Csvg width='24px' height='24px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.59182 15.3042C2.34396 9.78675 6.40306 3.75 12.3609 3.75H12.6823C17.1379 3.75 20.7499 7.36201 20.7499 11.8176C20.7499 16.7785 16.7284 20.8 11.7676 20.8H3.94731C3.62905 20.8 3.34545 20.5991 3.23982 20.2989C3.13419 19.9987 3.22954 19.6645 3.47769 19.4652L5.44918 17.8819C5.53538 17.8127 5.56587 17.6951 5.52416 17.5927L4.59182 15.3042ZM12.3609 5.25C7.46834 5.25 4.13502 10.2074 5.98096 14.7383L6.9133 17.0268C7.2053 17.7435 6.99184 18.5669 6.38842 19.0515L6.07897 19.3H11.7676C15.9 19.3 19.2499 15.95 19.2499 11.8176C19.2499 8.19044 16.3095 5.25 12.6823 5.25H12.3609Z' fill='black'/%3E%3C/svg%3E%0A") no-repeat 13px center;
+    }
 
 </style>
 
@@ -990,10 +1052,10 @@
                                             d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
                                 </svg>
                             </div>
-                            Username Spotify
+                            $session_user.username
                         </button>
                         <div class="dropdownMenuButton1-dropContent">
-                            <a href="./login.html">Log Out</a>
+                            <a href="./login">Log Out</a>
                         </div>
 
                     </div>
@@ -1026,20 +1088,28 @@
                     </div>
                 </div>
 
-                <h2 class="fw-bold" id="greeting" style="padding-bottom: 30px">Comments</h2>
+                <div id="comment_section">
+                    <h2 class="fw-bold" id="greeting" style="padding-bottom: 30px">Comments</h2>
 
-                #foreach($comment in $comment_list)
+                    #foreach($comment in $comment_list)
+                      <div>
+                        <div class="d-flex">
+                            <img class="mx-1" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_x96.png"  alt="" height="30px" width="30px" style="border-radius: 50%;">
+                            <div><span><small><b>$comment.user.username</b></small></span></div>
+                        </div>
+                        $comment.text
+                        #if( $foreach.hasNext )
+                            <hr class="mx-4 mb-0 mt-2">
+                        #end
 
-                    <div class="d-flex">
-                        <img class="mx-1" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_x96.png"  alt="" height="30px" width="30px" style="border-radius: 50%;">
-                        <div><span><small><b>$comment.user.username</b></small></span></div>
-                    </div>
-                    $comment.text
-                    #if( $foreach.hasNext )
-                        <hr class="mx-4 mb-0 mt-2">
+                      </div>
                     #end
-                #end
 
+                </div>
+
+                <div class="div--hun" style="padding-top: 1em">
+                    <form class="form--hun"><input id="comment_box" class="Type__TypeElement-goli3j-0 cPwEdQ QO9loc33XC50mMRUCIvf" maxlength="800" autocorrect="off" autocapitalize="none" spellcheck="false"  placeholder="Post a comment..." data-testid="search-input" value="" style="color: rgb(0, 0, 0);"/></form>
+                </div>
 
                 <h2 class="fw-bold" id="greeting" style="padding-top: 30px; padding-bottom: 30px">Song List</h2>
 
@@ -1049,7 +1119,7 @@
                     <div class="d-flex">
                         <img class="mx-1" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_x96.png"  alt="" height="80px" width="80px" style="border-radius: 10%;">
                         <div>
-                            <span><b>$song.title</b></span>
+                            <span><b> $song.title </b></span>
                             <br/>
                             <span><i>Artiste qu'on a pas reussi a parse du json</i></span>
                         </div>
@@ -1068,7 +1138,78 @@
 </div>
 
 <script>
+    const comment_box=document.getElementById("comment_box");
+    comment_box.addEventListener("click", () => comment_box.style.color="black")
+    comment_box.addEventListener("blur", () =>comment_box.style.color="#7A7A7A" )
 
+    const userProfile=document.getElementById('dropdownMenuButton1');
+    username=userProfile.inneText;
+
+    comment_box.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            // TO DO send API call to post comment
+
+            //Append comment div into comment section
+            let div = document.createElement('div')
+
+            let hr=document.createElement("hr")
+            hr.classList.add("mx-4")
+            hr.classList.add("mb-0")
+            hr.classList.add("mt-2")
+
+
+            let inside_div= document.createElement('div')
+            inside_div.classList.add('d-flex')
+
+            let img=document.createElement('img')
+            img.classList.add('mx-1')
+            img.src="https://abs.twimg.com/sticky/default_profile_images/default_profile_x96.png"
+            img.style.borderRadius="50%"
+            img.style.width='30px'
+            img.style.height='30px'
+
+            let username_div=document.createElement('div')
+            let span = document.createElement('span')
+            let small= document.createElement('small')
+            let b=document.createElement('b')
+            b.innerHTML=username
+
+            small.append(b)
+            span.append(small)
+            username_div.append(span)
+            inside_div.append(
+                img, username_div
+            )
+            div.append(
+                hr,
+                inside_div,
+                comment_box.value
+            )
+
+            document.getElementById("comment_section").append(div)
+
+            //reset comment box
+            comment_box.value=""
+        }
+    });
+    // Post a comment... reappears when field is not in focus anymore
+    /*$('.comment_box').blur(function() {
+        if ($(this).val() === '') {
+            return $(this).val('Post a comment...');
+        }
+    });
+
+    // Expanding
+    $(".comment_box").focus(function() {
+        $(this).animate({ width: "470px" }, 250);
+        $(this).animate({ height: "200px" }, 250);
+    });
+
+    $(".comment_box").blur(function() {
+        $(this).animate({ width: "300px" }, 200);
+        $(this).animate({ height: "130px" }, 200);
+    });*/
 </script>
 </body>
 
