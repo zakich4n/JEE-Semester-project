@@ -26,9 +26,8 @@ public class PlaylistService {
         playlistDAO.save(playlist);
     }
 
-    public void addSong(Playlist playlist, String ID_Song){
-        Song song = new Song(ID_Song);
-        playlist.addSong(song);
+    public void addSong(Playlist playlist,Song song){
+        playlist.getSongs().add(song);
         playlistDAO.save(playlist);
     }
 
@@ -56,16 +55,19 @@ public class PlaylistService {
             isNull=false;
         }
         catch (Exception e) {
-
-
         }
-
         return isNull;
     }
 
     public List<Playlist> getAllPlaylistFromUser(String ID_user) {
         return playlistDAO.getAllPlaylistFromUser(ID_user);
     }
+
+    public Boolean checkPlaylistExist(String playlist_id) {
+        return playlistDAO.existsById(playlist_id);
+    }
+
+
 }
 
 

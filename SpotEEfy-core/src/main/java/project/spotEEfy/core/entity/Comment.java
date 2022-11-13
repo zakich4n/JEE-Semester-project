@@ -20,6 +20,7 @@ public class Comment {
     @JoinColumn(name = "ID_User")
     private User user;
 
+    
     @Column(name = "text")
     private String text;
 

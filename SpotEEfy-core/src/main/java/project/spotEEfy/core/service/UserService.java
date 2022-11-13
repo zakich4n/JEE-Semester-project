@@ -33,7 +33,7 @@ public class UserService {
     public List<User> findAll() { return userDAO.findAll(); }
 
 
-    public User getUserById(long id) { return userDAO.getUserByID_User(id); }
+    public User getUserById(String id) { return userDAO.getUserByID_User(id); }
 
     public List<User> getAllUsers() { return userDAO.getAllUsers(); }
 
