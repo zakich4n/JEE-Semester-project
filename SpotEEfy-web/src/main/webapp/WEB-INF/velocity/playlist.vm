@@ -1249,7 +1249,8 @@
             loading_gif.style.display="block"
 
             // TO DO send API call to post comment
-            httpGetAsync('./comment?id_playlist=XXX&user=YYY&comment=ZZZ', (resp) => {
+            let payload= {"id_playlist": "XXX", "user":"YYY" ,"comment":"ZZZ"}
+            httpPostAsync('./comment',payload ,(resp) => {
                 if(resp.status == 200) { //success
                     //Append comment div into comment section
                     appendComment(comment_box.value)
@@ -1264,7 +1265,7 @@
         }
     });
 
-    function httpGetAsync(theUrl, callback)
+    function httpPostAsync(theUrl,payload, callback)
     {
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.timeout=2000
@@ -1275,8 +1276,8 @@
             if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
                 callback(xmlHttp);
         }
-        xmlHttp.open("GET", theUrl, true);
-        xmlHttp.send(null);
+        xmlHttp.open("POST", theUrl, true);
+        xmlHttp.send(payload);
     }
 
     function appendComment(comment_value) {
