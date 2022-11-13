@@ -210,10 +210,10 @@ public class LoginController {
                     }
                 }
 
+
                 log.warn("result of the playlist call of index "+ i +" : " + ID_Playlist + " " + user_playlist + " "
                         + name + " " + songs_url + " "  + " " + photo_url );
-
-
+                /*
                 URL url_songs = new URL(songs_url);
 
                 HttpURLConnection con_songs = (HttpURLConnection) url_songs.openConnection();
@@ -234,6 +234,8 @@ public class LoginController {
                 //log.warn("Response_songs:-" + response_songs.toString());
                 //List<List<String>> listSong = deparseSongList(response_songs.toString());
                 //log.warn("song after parse : " + listSong.toString());
+
+                 */
             }
 
         } catch (IOException e) {
@@ -241,5 +243,4 @@ public class LoginController {
         }
         return "redirect:/home";
     }
-
 }

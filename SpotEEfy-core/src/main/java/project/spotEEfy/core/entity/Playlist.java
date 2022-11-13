@@ -13,10 +13,13 @@ public class Playlist {
     @Column
     private String ID_Playlist;
 
-
+/*
     @ManyToOne
     @JoinColumn(name = "ID_User")
     private User user;
+
+ */
+    private String user;
 
     private String name;
     private String photo_url;
@@ -24,7 +27,7 @@ public class Playlist {
     @OneToMany
     private List<Song> songs;
 
-    public Playlist(String ID_Playlist, User user, String name, String photo_url) {
+    public Playlist(String ID_Playlist, String user, String name, String photo_url) {
         this.ID_Playlist = ID_Playlist;
         this.user = user;
         this.name = name;
@@ -35,11 +38,11 @@ public class Playlist {
     public Playlist() {
     }
 
-    public User getUser() {
+    public String getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(String user) {
         this.user = user;
     }
 
