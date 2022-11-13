@@ -8,10 +8,10 @@ public class Like{
     @Id
     private Long id;
 
-    @OneToOne
+    @OneToMany
     private User user;
 
-    @OneToOne
+    @OneToMany
     private Playlist playlist;
 
     public Like(User user, Playlist playlist) {

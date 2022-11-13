@@ -213,9 +213,18 @@ public class LoginController {
 
                 log.warn("result of the playlist call of index "+ i +" : " + ID_Playlist + " " + user_playlist + " "
                         + name + " " + songs_url + " "  + " " + photo_url );
+                createPlaylist(ID_Playlist, user_playlist, name, photo_url);
                 /*
-                URL url_songs = new URL(songs_url);
+                if(!playlistService.checkPlaylistExist(ID_Playlist)) {
+                    createPlaylist(ID_Playlist, user_playlist, name, photo_url);
+                } else {
+                    log.info("Playlist " + ID_Playlist + " already exist");
+                }
 
+                 */
+
+                //URL url_songs = new URL(songs_url+"?fields=items(track(name,artists,duration_ms,album(name,href,images)))");
+                /*
                 HttpURLConnection con_songs = (HttpURLConnection) url_songs.openConnection();
                 con_songs.setRequestProperty("Authorization", "Bearer "+ tokeng);
                 con_songs.setRequestProperty("Content-Type","application/json");
@@ -234,7 +243,6 @@ public class LoginController {
                 //log.warn("Response_songs:-" + response_songs.toString());
                 //List<List<String>> listSong = deparseSongList(response_songs.toString());
                 //log.warn("song after parse : " + listSong.toString());
-
                  */
             }
 
@@ -242,5 +250,10 @@ public class LoginController {
             e.printStackTrace();
         }
         return "redirect:/home";
+    }
+
+    public void createPlaylist(String ID_playlist, String user_playlist, String name, String photo_url) {
+        Playlist playlistToCreate = new Playlist(ID_playlist, user_playlist, name, photo_url);
+        playlistService.savePlaylist(playlistToCreate);
     }
 }
