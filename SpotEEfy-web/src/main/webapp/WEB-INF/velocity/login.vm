@@ -11,7 +11,7 @@
 </head>
 <body>
 
-    <style>
+<style>
         body {
             overflow: auto !important;
         }
@@ -238,6 +238,7 @@
             position: relative;
             text-decoration: none;
             width: 14em;
+            top : 50vh;
             z-index: 2;
         }
 
@@ -261,23 +262,10 @@
         }
 
     </style>
+
     <div class="register-main-container">
-        <div class="right">
-            <img src="images/temporary.jpeg" alt="'temp"/>
-        </div>
         <div class="left">
-            <div class="button-container">
-                <div
-                        id="activate-signup-form"
-                >
-                <p></p>
-            </div>
-            <span
-                    id="activate-login-form"
-            >
-            Log In
-            </span>
-        </div>
+
 
         <div>
             <!--
