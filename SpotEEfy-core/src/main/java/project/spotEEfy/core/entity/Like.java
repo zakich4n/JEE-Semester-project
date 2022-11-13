@@ -5,13 +5,16 @@ import javax.persistence.*;
 
 @Entity
 public class Like{
+
     @Id
     private Long id;
 
     @OneToMany
+    @JoinColumn(name = "ID_User")
     private User user;
 
     @OneToMany
+    @JoinColumn(name = "ID_Playlist")
     private Playlist playlist;
 
     public Like(User user, Playlist playlist) {
