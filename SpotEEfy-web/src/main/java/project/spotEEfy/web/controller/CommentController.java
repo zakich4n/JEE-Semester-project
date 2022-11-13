@@ -35,7 +35,7 @@ public class CommentController {
         );
         commentService.saveComment(comment);
         res.setStatus(HttpServletResponse.SC_OK);
-        res.flush;
+        res.getStatus();
     }
 
 
