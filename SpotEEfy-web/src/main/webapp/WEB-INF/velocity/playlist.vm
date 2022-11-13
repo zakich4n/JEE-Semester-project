@@ -883,6 +883,111 @@
         display: flex;
         flex-direction: column;
     }
+    .comment_box {
+        /* Cosmetic */
+        margin-left: 30px;
+        margin-top: 50px;
+
+        border-radius: 7px;
+        border-color: #BABABA;
+        box-shadow: 1px 5px 2px #EDEDED;
+        height: 130px;
+        width: 300px; /* Was 470px */
+
+        /* Text */
+        font-family: "Helvetica Neue", sans-serif;
+        font-size: 15px;
+        font-weight: normal;
+        color: #7A7A7A;
+
+        padding: 10px;
+    }
+
+    .comment_box:focus {
+        outline: none;
+        border-color: #7AB0E6
+    }
+
+    .div--hun{
+        display: flex;
+        justify-content: left !important;
+        align-items: left !important;
+    }
+
+    .form--hun{
+        float: left;
+    }
+
+
+
+    .cPwEdQ {
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+        margin-block: 0px;
+        font-size: 1rem;
+
+        font-weight: 500;
+        font-family: var(--font-family,CircularSp,CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva,var(--fallback-fonts,sans-serif));
+        color: inherit;
+
+    }
+
+    .QO9loc33XC50mMRUCIvf {
+        border: 0;
+        border-radius: 500px;
+        color: #000;
+        height: 40px;
+        width: 350px !important;
+        padding: 6px 48px;
+        text-overflow: ellipsis;
+        float: left !important;
+        background: url("data:image/svg+xml,%3Csvg width='24px' height='24px' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.59182 15.3042C2.34396 9.78675 6.40306 3.75 12.3609 3.75H12.6823C17.1379 3.75 20.7499 7.36201 20.7499 11.8176C20.7499 16.7785 16.7284 20.8 11.7676 20.8H3.94731C3.62905 20.8 3.34545 20.5991 3.23982 20.2989C3.13419 19.9987 3.22954 19.6645 3.47769 19.4652L5.44918 17.8819C5.53538 17.8127 5.56587 17.6951 5.52416 17.5927L4.59182 15.3042ZM12.3609 5.25C7.46834 5.25 4.13502 10.2074 5.98096 14.7383L6.9133 17.0268C7.2053 17.7435 6.99184 18.5669 6.38842 19.0515L6.07897 19.3H11.7676C15.9 19.3 19.2499 15.95 19.2499 11.8176C19.2499 8.19044 16.3095 5.25 12.6823 5.25H12.3609Z' fill='black'/%3E%3C/svg%3E%0A") no-repeat 13px center;
+    }
+
+    #snackbar {
+        visibility: hidden; /* Hidden by default. Visible on click */
+        min-width: 250px; /* Set a default minimum width */
+        margin-left: -125px; /* Divide value of min-width by 2 */
+        background-color: #333; /* Black background color */
+        color: #fff; /* White text color */
+        text-align: center; /* Centered text */
+        border-radius: 2px; /* Rounded borders */
+        padding: 16px; /* Padding */
+        position: fixed; /* Sit on top of the screen */
+        z-index: 1; /* Add a z-index if needed */
+        left: 50%; /* Center the snackbar */
+        bottom: 30px; /* 30px from the bottom */
+    }
+
+    /* Show the snackbar when clicking on a button (class added with JavaScript) */
+    #snackbar.show {
+        visibility: visible; /* Show the snackbar */
+        /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+        However, delay the fade out process for 2.5 seconds */
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    /* Animations to fade the snackbar in and out */
+    @-webkit-keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @-webkit-keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+
+    @keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
 
 </style>
 
@@ -1020,20 +1125,79 @@
                     </div>
                 </div>
 
-                <h2 class="fw-bold" id="greeting" style="padding-bottom: 30px">Comments</h2>
+                <div id="comment_section">
+                    <h2 class="fw-bold" id="greeting" style="padding-bottom: 30px">Comments</h2>
 
-                #foreach($comment in $comment_list)
+                    #foreach($comment in $comment_list)
+                      <div>
+                        <div class="d-flex">
+                            <img class="mx-1" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_x96.png"  alt="" height="30px" width="30px" style="border-radius: 50%;">
+                            <div><span><small><b>$comment.user.username</b></small></span></div>
+                        </div>
+                        $comment.text
+                        #if( $foreach.hasNext )
+                            <hr class="mx-4 mb-0 mt-2">
+                        #end
 
-                    <div class="d-flex">
-                        <img class="mx-1" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_x96.png"  alt="$comment.user.username" height="30px" width="30px" style="border-radius: 50%;">
-                        <div><span><small><b>$comment.user.username</b></small></span></div>
-                    </div>
-                    $comment.text
-                    #if( $foreach.hasNext )
-                        <hr class="mx-4 mb-0 mt-2">
+                      </div>
                     #end
-                #end
 
+                </div>
+
+                <div class="div--hun" style="padding-top: 1em">
+                    <form class="form--hun"><input style="background-color: white" id="comment_box" class="Type__TypeElement-goli3j-0 cPwEdQ QO9loc33XC50mMRUCIvf" maxlength="800" autocorrect="off" autocapitalize="none" spellcheck="false"  placeholder="Post a comment..." data-testid="search-input" value="" style="color: rgb(0, 0, 0);"/></form>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="loading_gif" style="width: 50px;height: 50px; display : none"  viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                        <g transform="rotate(0 50 50)">
+                            <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#a6a6a6">
+                                <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.9166666666666666s" repeatCount="indefinite"></animate>
+                            </rect>
+                        </g><g transform="rotate(30 50 50)">
+                        <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#a6a6a6">
+                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.8333333333333334s" repeatCount="indefinite"></animate>
+                        </rect>
+                    </g><g transform="rotate(60 50 50)">
+                        <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#a6a6a6">
+                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.75s" repeatCount="indefinite"></animate>
+                        </rect>
+                    </g><g transform="rotate(90 50 50)">
+                        <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#a6a6a6">
+                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.6666666666666666s" repeatCount="indefinite"></animate>
+                        </rect>
+                    </g><g transform="rotate(120 50 50)">
+                        <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#a6a6a6">
+                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5833333333333334s" repeatCount="indefinite"></animate>
+                        </rect>
+                    </g><g transform="rotate(150 50 50)">
+                        <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#a6a6a6">
+                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.5s" repeatCount="indefinite"></animate>
+                        </rect>
+                    </g><g transform="rotate(180 50 50)">
+                        <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#a6a6a6">
+                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.4166666666666667s" repeatCount="indefinite"></animate>
+                        </rect>
+                    </g><g transform="rotate(210 50 50)">
+                        <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#a6a6a6">
+                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.3333333333333333s" repeatCount="indefinite"></animate>
+                        </rect>
+                    </g><g transform="rotate(240 50 50)">
+                        <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#a6a6a6">
+                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.25s" repeatCount="indefinite"></animate>
+                        </rect>
+                    </g><g transform="rotate(270 50 50)">
+                        <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#a6a6a6">
+                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.16666666666666666s" repeatCount="indefinite"></animate>
+                        </rect>
+                    </g><g transform="rotate(300 50 50)">
+                        <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#a6a6a6">
+                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="-0.08333333333333333s" repeatCount="indefinite"></animate>
+                        </rect>
+                    </g><g transform="rotate(330 50 50)">
+                        <rect x="47" y="24" rx="3" ry="6" width="6" height="12" fill="#a6a6a6">
+                            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animate>
+                        </rect>
+                    </g>
+                    </svg>
+                </div>
 
                 <h2 class="fw-bold" id="greeting" style="padding-top: 30px; padding-bottom: 30px">Song List</h2>
 
@@ -1043,9 +1207,9 @@
                     <div class="d-flex">
                         <img class="mx-1" src="https://abs.twimg.com/sticky/default_profile_images/default_profile_x96.png"  alt="$song.title" height="80px" width="80px" style="border-radius: 10%;">
                         <div>
-                            <span><b>$song.title</b></span>
+                            <span><b> $song.title </b></span>
                             <br/>
-                            <span><i>$song.artist</i></span>
+                            <span><i>Artiste qu'on a pas reussi a parse du json</i></span>
                         </div>
                     </div>
                     #if( $foreach.hasNext )
@@ -1054,22 +1218,107 @@
                 #end
 
 
+                <div id="snackbar">An error occurred, please try again later <3</div>
+
                     <!--Popular new releases-->
             </main>
         </div>
     </div>
 
-    <div id="snackbar">Playlist is liked !</div>
 </div>
 
 <script>
+    const comment_box=document.getElementById("comment_box");
+    const loading_gif= document.getElementById('loading_gif')
+    const userProfile=document.getElementById('dropdownMenuButton1');
+    username=userProfile.inneText;
+
+    comment_box.addEventListener("click", () => comment_box.style.color="black")
+    comment_box.addEventListener("blur", () =>comment_box.style.color="#7A7A7A" )
+
+    comment_box.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            comment_box.style.backgroundColor="#3e3e3e"
+            loading_gif.style.display="block"
+
+            // TO DO send API call to post comment
+            let payload= {"id_playlist": "XXX", "user":"YYY" ,"comment":"ZZZ"}
+            httpPostAsync('./comment',payload ,(resp) => {
+                if(resp.status == 200) { //success
+                    //Append comment div into comment section
+                    appendComment(comment_box.value)
+                    //reset comment box
+                    comment_box.style.backgroundColor="white"
+                    comment_box.value=""
+                    loading_gif.style.display="none"
+                } else {
+                    playlistLikedToast()
+                }
+            })
+        }
+    });
+
+    function httpPostAsync(theUrl,payload, callback)
+    {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.timeout=2000
+        xmlHttp.ontimeout= function () {
+            playlistLikedToast()
+        }
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                callback(xmlHttp);
+        }
+        xmlHttp.open("POST", theUrl, true);
+        xmlHttp.send(payload);
+    }
+
+    function appendComment(comment_value) {
+        let div = document.createElement('div')
+
+        let hr=document.createElement("hr")
+        hr.classList.add("mx-4")
+        hr.classList.add("mb-0")
+        hr.classList.add("mt-2")
+
+
+        let inside_div= document.createElement('div')
+        inside_div.classList.add('d-flex')
+
+        let img=document.createElement('img')
+        img.classList.add('mx-1')
+        img.src="https://abs.twimg.com/sticky/default_profile_images/default_profile_x96.png"
+        img.style.borderRadius="50%"
+        img.style.width='30px'
+        img.style.height='30px'
+
+        let username_div=document.createElement('div')
+        let span = document.createElement('span')
+        let small= document.createElement('small')
+        let b=document.createElement('b')
+        b.innerHTML=username
+
+        small.append(b)
+        span.append(small)
+        username_div.append(span)
+        inside_div.append(
+                img, username_div
+        )
+        div.append(
+                hr,
+                inside_div,
+                comment_value
+        )
+
+        document.getElementById("comment_section").append(div)
+    }
 
     function playlistLikedToast() {
         var x = document.getElementById("snackbar");
         x.className = "show";
         setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
     }
-
 </script>
 </body>
 

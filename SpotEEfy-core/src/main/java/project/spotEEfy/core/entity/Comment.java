@@ -28,8 +28,7 @@ public class Comment {
     private Long id;
 
 
-    public Comment(Long id, User user, Playlist playlist, String text) {
-        this.id = id;
+    public Comment( User user, Playlist playlist, String text) {
         this.user = user;
         this.playlist = playlist;
         this.text = text;
