@@ -5,6 +5,7 @@ import javax.persistence.*;
 
 @Entity
 public class Like{
+
     @Id
     private Long id;
 
@@ -13,6 +14,8 @@ public class Like{
 
     @OneToOne
     private Playlist playlist;
+
+
 
     public Like(User user, Playlist playlist) {
         this.user = user;

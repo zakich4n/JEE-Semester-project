@@ -20,7 +20,7 @@ public interface UserDAO extends JpaRepository<User, Long> {
     public User getUserByEmail(@Param("email") String email);
 
     @Query("SELECT u FROM User u WHERE u.ID_User = :id")
-    public User getUserByID_User(@Param("id") long id);
+    public User getUserByID_User(@Param("id") String id);
 
     @Query("SELECT u FROM User u")
     public List<User> getAllUsers();

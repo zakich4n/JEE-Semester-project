@@ -45,13 +45,13 @@ public class HomeController {
         model.addAttribute("session_user", sessionUser);
         log.warn("IS there something in session user : "+ sessionUser.getID_User());
         Boolean isEmpty=true;
-        try {
-            playlistService.doesUserHaveNoPlaylist(sessionUser);
-            likeService.doesUserHaveNoLike(sessionUser);
-            isEmpty=false;
-        } catch (Exception e) {
+        // try catch before here
 
-        }
+        //playlistService.doesUserHaveNoPlaylist(sessionUser);
+
+        //likeService.doesUserHaveNoLike(sessionUser);
+        isEmpty=false;
+
         if(isEmpty) return "empty_library";
         model.addAttribute("created_playlists", playlistService.getAllPlaylistFromUser(sessionUser.getID_User()));
         List<Like> likedByUser=likeService.getAllLikesFromUser(sessionUser);

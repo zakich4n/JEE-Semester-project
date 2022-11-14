@@ -14,7 +14,6 @@
 
 
 <body>
-
 <style>
     * {
         box-sizing: border-box;
@@ -183,6 +182,51 @@
         opacity: 0.5;
     }
 
+    #snackbar {
+        visibility: hidden; /* Hidden by default. Visible on click */
+        min-width: 250px; /* Set a default minimum width */
+        margin-left: -125px; /* Divide value of min-width by 2 */
+        background-color: #333; /* Black background color */
+        color: #fff; /* White text color */
+        text-align: center; /* Centered text */
+        border-radius: 2px; /* Rounded borders */
+        padding: 16px; /* Padding */
+        position: fixed; /* Sit on top of the screen */
+        z-index: 1; /* Add a z-index if needed */
+        left: 50%; /* Center the snackbar */
+        bottom: 30px; /* 30px from the bottom */
+    }
+
+    /* Show the snackbar when clicking on a button (class added with JavaScript) */
+    #snackbar.show {
+        visibility: visible; /* Show the snackbar */
+        /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+        However, delay the fade out process for 2.5 seconds */
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+
+    /* Animations to fade the snackbar in and out */
+    @-webkit-keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @keyframes fadein {
+        from {bottom: 0; opacity: 0;}
+        to {bottom: 30px; opacity: 1;}
+    }
+
+    @-webkit-keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+
+    @keyframes fadeout {
+        from {bottom: 30px; opacity: 1;}
+        to {bottom: 0; opacity: 0;}
+    }
+
     #principal #feed #topNav #btnTopNav button#upgrade {
         background-color: rgba(10, 10, 10, 0.1);
         color: #fff;
@@ -285,6 +329,7 @@
         transform: scale(1.05);
     }
 
+
     #botomIcon {
         display: none !important;
     }
@@ -332,7 +377,7 @@
         flex-wrap: wrap;
         padding: 0;
         justify-content: space-between;
-        overflow-y: hidden;
+
         height: 380px;
     }
 
@@ -793,6 +838,7 @@
     }
 </style>
 
+
 <div id="app" class="d-flex flex-column">
 
     <div id="principal" class="d-flex">
@@ -820,7 +866,6 @@
                                 d="M13.5 1.515a3 3 0 00-3 0L3 5.845a2 2 0 00-1 1.732V21a1 1 0 001 1h6a1 1 0 001-1v-6h4v6a1 1 0 001 1h6a1 1 0 001-1V7.577a2 2 0 00-1-1.732l-7.5-4.33z">
                         </path>
                     </svg> Home</a>
-                </li>
 
                 <li class="nav-item">
                     <a href="./library" class="nav-link ativo"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
@@ -839,18 +884,10 @@
             <hr class="mx-4 mb-0 mt-2">
 
 
-            #if($session_user)
-
-                <a href="./logout" id="installApp" class="d-block px-4 py-2">
-                    Log Out
-                </a>
-
-            #else
-                <a href="./login" id="installApp" class="d-block px-4 py-2">
-                    Sign In
-                </a>
-            #end
-
+            <!-- Start of Install App Button-->
+            <a href="login.html" id="installApp" class="d-block px-4 py-2">
+                Log Out
+            </a>
 
 
         </nav>
@@ -918,299 +955,48 @@
                 <!-- seção inicial (header) -->
                 <section id="feedHeader">
 
+
+
+
+
+
                     <!-- start of greeting -->
-                    <h2 class="fw-bold" id="greeting">Welcome Back</h2>
-                    <!-- end of greeting -->
+                    <h2 class="fw-bold" id="greeting">Sorry ! There is no playlist in your account !</h2>
 
-                    <!-- recent playlists -->
-                    <ul id="playlistsRecentes" class="mb-5">
-                        <li>
-                            <img src="https://i.scdn.co/image/ab67706f000000028c1c17b5187d38bfdce93f11" :alt="playlist.nome">
-                            <span class="fw-semibold ms-3 me-auto">SZA is on top of the Hottest 50!</span>
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                        </li>
-
-                        <li>
-                            <img src="https://i.scdn.co/image/ab67706f000000022859d5c4213ce9353f40a553" :alt="playlist.nome">
-                            <span class="fw-semibold ms-3 me-auto">New music from Drake and 21 Savage.</span>
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                        </li>
-
-                        <li>
-                            <img src="https://i.scdn.co/image/ab67706f00000002cc30c9c5cf2114e3efd90d1b" :alt="playlist.nome">
-                            <span class="fw-semibold ms-3 me-auto">The biggest songs of the 2010s. Cover: Macklemore & Ryan Lewis.</span>
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                        </li>
-
-                        <li>
-                            <img src="https://i.scdn.co/image/ab67706f0000000268844838c3611ace0755e0f5" :alt="playlist.nome">
-                            <span class="fw-semibold ms-3 me-auto">Rock legends & epic songs</span>
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                        </li>
-
-                        <li>
-                            <img src="https://i.scdn.co/image/ab67706f0000000259571cd3bb5fb3daa4ecdf98" :alt="playlist.nome">
-                            <span class="fw-semibold ms-3 me-auto">Son des tout derniers hits chill</span>
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                        </li>
-
-
-                        <li>
-                            <img src="https://i.scdn.co/image/ab67706f00000002820c9e2a324d195ec300e0a7" :alt="playlist.nome">
-                            <span class="fw-semibold ms-3 me-auto">Today's top Latin hits</span>
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-
-                        </li>
-
-                    </ul>
-                </section>
-
-
-
-                <!-- Your top mixes -->
-                <section class="feedPlaylist">
-                    <h4 class="mb-3"><a href="#"><b>Top mixes</b></a></h4>
-                    <br>
-                    <br>
-                    <ul class="playlists">
-                        <li>
-                            <img src="">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Pop Mix</span>
-                            <p><br>SHY Martin, Lauv, Sia and more</p>
-                        </li>
-
-                        <li>
-                            <img src="">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Chill Mix</span>
-                            <p><br>Lauv, Oh Wonder, The Chainsmokers and more</p>
-                        </li>
-
-                        <li>
-                            <img src="">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Moody Mix</span>
-                            <p><br>Charlie Puth, Oh Wonder, Alec Benjamin and more</p>
-                        </li>
-
-                        <li>
-                            <img src="">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Latin Mix</span>
-                            <p><br>Timothy Infinite, Shakira and more</p>
-                        </li>
-
-                        <li>
-                            <img src="">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Hindi Mix</span>
-                            <p><br>Ritviz, Nuclea, Atif Aslam and more</p>
-                        </li>
-
-                        <li>
-                            <img src="">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>2010s Mix</span>
-                            <p><br>The Fat Rat, Alan Walker, The Chainsmokers and more</p>
-                        </li>
-                    </ul>
-                </section>
-
-                <!--recently played-->
-
-
-                <!--poular new releases-->
-                <section class="feedPlaylist">
-                    <h4 class="mb-3"><a href="#">Popular New releases</a></h4>
-                    <a class="see-all" href="#">SEE-ALL</a>
-                    <br>
-                    <br>
-                    <ul class="playlists">
-                        <li>
-                            <img src="">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Celestial</span>
-                            <p><br>Ed Shreeran</p>
-                        </li>
-
-                        <li>
-                            <img src="">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>this Is Why</span>
-                            <p><br>Paramore</p>
-                        </li>
-
-                        <li>
-                            <img src="">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>I GOT ISSUES</span>
-                            <p><br>YG</p>
-                        </li>
-
-                        <li>
-                            <img src="">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>uh oh</span>
-                            <p><br>Tate McRae</p>
-                        </li>
-
-                        <li>
-                            <img src="">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Body Paint</span>
-                            <p><br>Arctic Monkeys</p>
-                        </li>
-                </section>
-
-                <!--mood-->
-                <section class="feedPlaylist">
-                    <h4 class="mb-3"><a href="#">Mood</a></h4>
-                    <a class="see-all" href="#">SEE-ALL</a>
-                    <br>
-                    <br>
-                    <ul class="playlists">
-                        <li>
-                            <img src="">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Mood Booster</span>
-                            <p><br>Get happy with today's dose of feel-good songs!</p>
-                        </li>
-
-                        <li>
-                            <img src="">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Feelin' Good</span>
-                            <p><br>Feel good with this positively timeless playlist!</p>
-                        </li>
-
-                        <li>
-                            <img src="">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Dark & Stormy</span>
-                            <p><br>Beautifully dark, dramatic tracks.</p>
-                        </li>
-
-                        <li>
-                            <img src="">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Feel Good Piano</span>
-                            <p><br>Happy vibes for an upbeat morning.</p>
-                        </li>
-
-                        <li>
-                            <img src="">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Feelin' Myself</span>
-                            <p><br>The hip-hop playlist that's a whole mood. Art By Laci Jordan; Cover: Lakeyah</p>
-                        </li>
-
-                        <li>
-                            <img src="">
-                            <button type="button" class="btn me-3"><svg role="img" height="24" width="24" viewBox="0 0 24 24">
-                                <path
-                                        d="M7.05 3.606l13.49 7.788a.7.7 0 010 1.212L7.05 20.394A.7.7 0 016 19.788V4.212a.7.7 0 011.05-.606z">
-                                </path>
-                            </svg></button>
-                            <span>Chill Tracks</span>
-                            <p><br>Softer kinda dance.</p>
-                        </li>
             </main>
         </div>
     </div>
 
-
-
+    <div id="snackbar">Playlist is liked !</div>
 </div>
 
+<script>
+    function httpGetAsync(theUrl, callback)
+    {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                callback(xmlHttp.responseText);
+        }
+        xmlHttp.open("GET", theUrl, true); // true for asynchronous
+        xmlHttp.send(null);
+    }
+
+    function likePlaylist(Playlist_ID) {
+        httpGetAsync("http://localhost/SpotEEfy_web_war_exploded/like?playlist="+Playlist_ID)
+    }
+
+    function unlikePlaylist(Playlist_ID) {
+        httpGetAsync("http://localhost/SpotEEfy_web_war_exploded/unlike?playlist="+Playlist_ID)
+    }
+
+    function playlistLikedToast() {
+        var x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+    }
+
+</script>
 </body>
 
 </html>

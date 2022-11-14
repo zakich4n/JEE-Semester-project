@@ -28,7 +28,7 @@ public class PlaylistController {
         model.addAttribute("session_user", sessionUser);
         Playlist playlist= playlistService.getPlaylistByID(id);
         model.addAttribute("playlist",playlist);
-        model.addAttribute("song_list",playlist.getSongs());
+        //model.addAttribute("song_list",playlist.getSongs());
         model.addAttribute("comment_list", commentService.getCommentsFromPlaylist(playlist));
         return "library";
     }

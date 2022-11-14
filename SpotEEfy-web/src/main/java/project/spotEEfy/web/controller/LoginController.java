@@ -154,9 +154,11 @@ public class LoginController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "redirect:/wait";
+        return "redirect:/home";
     }
 
+
+    // To explain a little this function had to get and create all the playlist but it still don't work on monday so... ://
     @GetMapping("/wait")
     public String getUserData(User user) {
 
@@ -183,11 +185,6 @@ public class LoginController {
             // printing result from response
             log.warn("Response_playlist:-" + response.toString());
 
-
-
-            //TODO change id user to string
-
-
             String ID_Playlist = null;
             String user_playlist = null;
             String name = null;
@@ -210,12 +207,15 @@ public class LoginController {
                     }
                 }
 
+
                 log.warn("result of the playlist call of index "+ i +" : " + ID_Playlist + " " + user_playlist + " "
                         + name + " " + songs_url + " "  + " " + photo_url );
+                Playlist playlistToCreate = new Playlist(ID_Playlist, user_playlist, name, photo_url);
+                playlistService.savePlaylist(playlistToCreate);
 
 
-                URL url_songs = new URL(songs_url);
-
+                //URL url_songs = new URL(songs_url+"?fields=items(track(name,artists,duration_ms,album(name,href,images)))");
+                /*
                 HttpURLConnection con_songs = (HttpURLConnection) url_songs.openConnection();
                 con_songs.setRequestProperty("Authorization", "Bearer "+ tokeng);
                 con_songs.setRequestProperty("Content-Type","application/json");
@@ -234,6 +234,7 @@ public class LoginController {
                 //log.warn("Response_songs:-" + response_songs.toString());
                 //List<List<String>> listSong = deparseSongList(response_songs.toString());
                 //log.warn("song after parse : " + listSong.toString());
+                 */
             }
 
         } catch (IOException e) {

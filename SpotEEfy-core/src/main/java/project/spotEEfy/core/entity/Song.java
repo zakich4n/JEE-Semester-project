@@ -10,8 +10,19 @@ public class Song {
     @Id
     public String ID_Song;
 
-    public Song(String ID_Song) {
-        this.ID_Song = ID_Song;
+    public String artist;
+    public String name;
+    public String duration;
+
+    public String album;
+    public String photo;
+
+    public Song(String artist,String name, String duration,String album,String photo) {
+        this.artist=artist;
+        this.name=name;
+        this.duration=duration;
+        this.album=album;
+        this.photo=photo;
     }
 
     public Song() {

@@ -23,21 +23,24 @@ public class PlaylistService {
     }
 
     public void savePlaylist(Playlist playlist){
+        log.info("playlist save : " + playlist.getID_Playlist() + " " + playlist.getName());
         playlistDAO.save(playlist);
     }
 
-    public void addSong(Playlist playlist, String ID_Song){
-        Song song = new Song(ID_Song);
-        playlist.addSong(song);
+    /*
+    public void addSong(Playlist playlist,Song song){
+        playlist.getSongs().add(song);
         playlistDAO.save(playlist);
     }
+
+     */
 
     public Playlist getPlaylistByID(String id) {
         return playlistDAO.findById(id).get();
     }
 
-    //TODO: maybe  a save by id if we need it in the front
-    //TODO: throw exception for PlaylistNotExistException
+    //INFO: maybe  a save by id if we need it in the front
+
     public void deletePlaylistById(String playlistId) throws IDNotFoundException {
         Optional<Playlist> optionalPlaylist = playlistDAO.findById(playlistId);
         if(optionalPlaylist.isPresent()) {
@@ -56,16 +59,26 @@ public class PlaylistService {
             isNull=false;
         }
         catch (Exception e) {
-
-
         }
-
         return isNull;
     }
 
     public List<Playlist> getAllPlaylistFromUser(String ID_user) {
         return playlistDAO.getAllPlaylistFromUser(ID_user);
     }
+
+    public Boolean checkPlaylistExist(String playlist_id) {
+        return playlistDAO.existsById(playlist_id);
+    }
+
+
+    public void createPlaylist(String ID_playlist, String user_playlist, String name, String photo_url) {
+        log.info("created playlist : " + ID_playlist + " " + user_playlist + " " + name + " " + photo_url);
+        Playlist playlistToCreate = new Playlist(ID_playlist, user_playlist, name, photo_url);
+        playlistDAO.save(playlistToCreate);
+    }
+
+
 }
 
 
