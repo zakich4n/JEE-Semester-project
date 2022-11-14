@@ -11,15 +11,16 @@ import javax.persistence.*;
 public class Comment {
 
     @ManyToOne
-    @JoinColumn(name = "ID_Playlist")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @JoinColumn(name = "playlist_id")
     private Playlist playlist;
 
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "ID_User")
     private User user;
 
-
+    @Column(name = "text")
     private String text;
 
     @Id

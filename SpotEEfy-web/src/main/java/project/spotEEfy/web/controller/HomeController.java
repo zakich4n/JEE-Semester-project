@@ -47,9 +47,9 @@ public class HomeController {
         Boolean isEmpty=true;
         // try catch before here
 
-        playlistService.doesUserHaveNoPlaylist(sessionUser);
+        //playlistService.doesUserHaveNoPlaylist(sessionUser);
 
-        likeService.doesUserHaveNoLike(sessionUser);
+        //likeService.doesUserHaveNoLike(sessionUser);
         isEmpty=false;
 
         if(isEmpty) return "empty_library";

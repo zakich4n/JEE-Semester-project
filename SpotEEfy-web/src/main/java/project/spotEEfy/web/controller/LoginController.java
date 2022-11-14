@@ -154,9 +154,11 @@ public class LoginController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "redirect:/wait";
+        return "redirect:/home";
     }
 
+
+    // To explain a little this function had to get and create all the playlist but it still don't work on monday so... ://
     @GetMapping("/wait")
     public String getUserData(User user) {
 
@@ -183,11 +185,6 @@ public class LoginController {
             // printing result from response
             log.warn("Response_playlist:-" + response.toString());
 
-
-
-            //TODO change id user to string
-
-
             String ID_Playlist = null;
             String user_playlist = null;
             String name = null;
@@ -213,15 +210,9 @@ public class LoginController {
 
                 log.warn("result of the playlist call of index "+ i +" : " + ID_Playlist + " " + user_playlist + " "
                         + name + " " + songs_url + " "  + " " + photo_url );
-                createPlaylist(ID_Playlist, user_playlist, name, photo_url);
-                /*
-                if(!playlistService.checkPlaylistExist(ID_Playlist)) {
-                    createPlaylist(ID_Playlist, user_playlist, name, photo_url);
-                } else {
-                    log.info("Playlist " + ID_Playlist + " already exist");
-                }
+                Playlist playlistToCreate = new Playlist(ID_Playlist, user_playlist, name, photo_url);
+                playlistService.savePlaylist(playlistToCreate);
 
-                 */
 
                 //URL url_songs = new URL(songs_url+"?fields=items(track(name,artists,duration_ms,album(name,href,images)))");
                 /*
@@ -252,8 +243,4 @@ public class LoginController {
         return "redirect:/home";
     }
 
-    public void createPlaylist(String ID_playlist, String user_playlist, String name, String photo_url) {
-        Playlist playlistToCreate = new Playlist(ID_playlist, user_playlist, name, photo_url);
-        playlistService.savePlaylist(playlistToCreate);
-    }
 }

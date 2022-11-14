@@ -19,9 +19,6 @@ public class Playlist {
     private String name;
     private String photo_url;
 
-    @OneToMany
-    private List<Song> songs;
-
     public Playlist(String ID_Playlist, String user, String name, String photo_url) {
         this.ID_Playlist = ID_Playlist;
         this.user = user;
@@ -66,6 +63,7 @@ public class Playlist {
         this.photo_url = photo_url;
     }
 
+    /*
     public List<Song> getSongs() {
         return songs;
     }
@@ -77,4 +75,6 @@ public class Playlist {
     public void addSong(Song song) {
         this.songs.add(song);
     }
+    */
+
 }

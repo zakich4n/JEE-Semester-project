@@ -13,8 +13,6 @@ public class User {
     private String email;
     private String username;
     private String password;
-    private int Age;
-    private String sexe;
     private String Country;
 
 
@@ -63,22 +61,6 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public int getAge() {
-        return Age;
-    }
-
-    public void setAge(int age) {
-        Age = age;
-    }
-
-    public String getSexe() {
-        return sexe;
-    }
-
-    public void setSexe(String sexe) {
-        this.sexe = sexe;
     }
 
     public String getCountry() {

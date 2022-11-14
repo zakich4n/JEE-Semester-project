@@ -9,13 +9,13 @@ public class Like{
     @Id
     private Long id;
 
-    @OneToMany
-    @JoinColumn(name = "ID_User")
+    @OneToOne
     private User user;
 
-    @OneToMany
-    @JoinColumn(name = "ID_Playlist")
+    @OneToOne
     private Playlist playlist;
+
+
 
     public Like(User user, Playlist playlist) {
         this.user = user;
