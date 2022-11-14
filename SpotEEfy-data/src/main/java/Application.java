@@ -231,7 +231,7 @@ public class Application {
             for(int y = 0; y< artists.length(); y++) {
                 //id= getJSONObject(y).getString("id")
                 //name=getJSONObject(y).getString("name")
-                artistsByNameAndId.put( artists.getJSONObject(y).getString("id") , artists.getJSONObject(y).getString("name") )
+                artistsByNameAndId.put( artists.getJSONObject(y).getString("id") , artists.getJSONObject(y).getString("name") );
             }
 
             //get track duration and name

@@ -13,9 +13,7 @@ public class Playlist {
     private String ID_Playlist;
 
 
-    @ManyToOne
-    @JoinColumn(name = "ID_User")
-    private User user;
+    private String user;
 
 
     private String name;
