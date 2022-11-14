@@ -41,7 +41,7 @@
             align-items: center;
             flex-direction: column;
             margin-left: 50vw;
-            height: 150vh;
+            height: 100vh;
             overflow: auto;
         }
         .register-main-container .left .button-container {
@@ -264,39 +264,13 @@
     </style>
 
     <div class="register-main-container">
+
+        <h2 style="font-weight: 700; color : white; position : absolute; top : 55vh; padding-left: 50px " id="greeting">Welcome to SpotEEfy !</h2>
+
         <div class="left">
 
 
         <div>
-            <!--
-            <form
-                    id="loginForm"
-                    action="register.php"
-                    method="POST"
-                    style="display:flex"
-            >
-            <p>Email/Username</p>
-
-            <input
-                    type="text"
-                    name="usernameOrEmail"
-                    placeholder="Email/Username"
-            />
-
-            <p>Password</p>
-            <input type="password" name="password" placeholder="Password" />
-            <button
-                    type="submit"
-                    class="button-green login-button"
-                    name="login-submit"
-            >
-            Log In
-            </button>
-            <a href="#" class="white-text">
-                Forgotten Password
-            </a>
-            </form>
-            -->
             <a class="bn31"  ><span class="bn31span" id="spotify_button">Login with Spotify</span></a>
         </div>
     </div>
